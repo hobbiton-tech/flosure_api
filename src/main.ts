@@ -8,7 +8,7 @@ async function bootstrap() {
   app.enableCors();
 
   const options = new DocumentBuilder()
-    .setTitle('postgres api')
+    .setTitle('postgres API')
     .setDescription('postgres CRUD operations')
     .setVersion('1.0')
     .build();
