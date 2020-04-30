@@ -10,11 +10,12 @@ import { Product } from 'src/setups/entities/product.entity';
   imports: [
     TypeOrmModule.forRoot({
       type: 'postgres',
-      host: 'localhost',
+      host: 'ec2-52-73-247-67.compute-1.amazonaws.com',
       port: 5432,
-      username: 'postgres',
-      password: 'joshua1234',
-      database: 'class',
+      username: 'qppyocwdpbilrq',
+      password:
+        '831626c55d6f55a3d431280f046d0685000a844f54d24276647614dc999be92d',
+      database: 'depqp2jclcrgp3',
       entities: [Class, Product],
       synchronize: true,
       autoLoadEntities: true,
