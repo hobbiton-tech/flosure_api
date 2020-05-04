@@ -4,13 +4,15 @@ import { Repository, Equal } from 'typeorm';
 import { ProductDto } from '../../dtos/product.dto';
 import { Product } from '../../entities/product.entity';
 import { Class } from 'src/setups/entities/class.entity';
+import { ProductRepository } from 'src/setups/repositories/product.repository';
+import { ClassRepository } from 'src/setups/repositories/class.repository';
 
 @Injectable()
 export class ProductService {
   constructor(
     @InjectRepository(Product)
-    private readonly productRepository: Repository<Product>,
-    private readonly classRepository: Repository<Class>,
+    private readonly productRepository: ProductRepository,
+    private readonly classRepository: ClassRepository,
   ) {}
 
   findAll = async (classId: string) => {

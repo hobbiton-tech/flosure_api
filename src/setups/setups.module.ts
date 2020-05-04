@@ -10,9 +10,18 @@ import { PerilController } from './controllers/peril/peril.controller';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { Class } from './entities/class.entity';
 import { Product } from './entities/product.entity';
+import { ProductRepository } from './repositories/product.repository';
+import { ClassRepository } from './repositories/class.repository';
 
 @Module({
-  imports: [TypeOrmModule.forFeature([Class, Product])],
+  imports: [
+    TypeOrmModule.forFeature([
+      Class,
+      Product,
+      ProductRepository,
+      ClassRepository,
+    ]),
+  ],
   providers: [ClassService, ProductService, CoverTypeService, PerilService],
   controllers: [
     ClassController,
