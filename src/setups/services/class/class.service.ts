@@ -13,7 +13,9 @@ export class ClassService {
   ) {}
 
   findAll = async () => {
-    return this.classRepository.find();
+    return this.classRepository.find({
+      relations: ['product'],
+    });
   };
 
   createClass = async (classDto: ClassDto) => {
