@@ -14,7 +14,7 @@ export class ClassService {
 
   findAll = async () => {
     return this.classRepository.find({
-      relations: ['product'],
+      relations: ['products'],
     });
   };
 
