@@ -15,14 +15,14 @@ import { ProductService } from '../../services/product/product.service';
 export class ProductController {
   constructor(private readonly productService: ProductService) {}
 
-  @Get()
-  getAllProducts() {
-    return this.productService.findAll();
+  @Get('class-products/:id')
+  getAllProducts(@Param('id') id: string) {
+    return this.productService.findAll(id);
   }
 
-  @Post()
-  createProduct(@Body() ProductDto: ProductDto) {
-    return this.productService.createProduct(ProductDto);
+  @Post(':id')
+  createProduct(@Param('id') id: string, @Body() ProductDto: ProductDto) {
+    return this.productService.createProduct(id, ProductDto);
   }
 
   @Get(':id')
