@@ -43,6 +43,7 @@ export class ProductService {
 
     // await this.productRepository.save(product);
     classEntity.products.push(product);
+    console.log(classEntity);
     await this.classRepository.save(classEntity);
   };
 
