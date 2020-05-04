@@ -5,6 +5,7 @@ import { AppService } from './app.service';
 import { SetupsModule } from './setups/setups.module';
 import { Class } from 'src/setups/entities/class.entity';
 import { Product } from 'src/setups/entities/product.entity';
+import { CommissionSetup } from './setups/entities/commission-setup.entity';
 
 @Module({
   imports: [
@@ -16,7 +17,7 @@ import { Product } from 'src/setups/entities/product.entity';
       password:
         '831626c55d6f55a3d431280f046d0685000a844f54d24276647614dc999be92d',
       database: 'depqp2jclcrgp3',
-      entities: [Class, Product],
+      entities: [Class, Product, CommissionSetup],
       synchronize: true,
       autoLoadEntities: true,
 
@@ -26,7 +27,7 @@ import { Product } from 'src/setups/entities/product.entity';
       // username: 'postgres',
       // password: 'joshua1234',
       // database: 'postgres',
-      // entities: [Class, Product],
+      // entities: [Class, Product, CommissionSetup],
       // synchronize: true,
       // autoLoadEntities: true,
     }),
