@@ -3,12 +3,13 @@ import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
 import { ClassDto } from '../../dtos/class.dto';
 import { Class } from '../../entities/class.entity';
+import { ClassRepository } from 'src/setups/repositories/class.repository';
 
 @Injectable()
 export class ClassService {
   constructor(
     @InjectRepository(Class)
-    private readonly classRepository: Repository<Class>,
+    private readonly classRepository: ClassRepository,
   ) {}
 
   findAll = async () => {

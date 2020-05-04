@@ -41,9 +41,8 @@ export class ProductService {
     product.productCode = productDto.productCode;
     product.productPolicyNumberPrefix = productDto.productPolicyNumberPrefix;
 
-    // await this.productRepository.save(product);
+    await this.productRepository.save(product);
     classEntity.products.push(product);
-    console.log(classEntity);
     await this.classRepository.save(classEntity);
   };
 
