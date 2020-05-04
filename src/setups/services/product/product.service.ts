@@ -1,4 +1,4 @@
-import { Injectable, Inject } from '@nestjs/common';
+import { Injectable, Inject, HttpException, HttpStatus } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository, Equal } from 'typeorm';
 import { ProductDto } from '../../dtos/product.dto';
@@ -28,6 +28,10 @@ export class ProductService {
       relations: ['products'],
     });
 
+    if (!classEntity) {
+      throw new HttpException('Class not found', HttpStatus.NOT_FOUND);
+    }
+
     console.log(classEntity);
 
     let product = new Product();
@@ -37,8 +41,9 @@ export class ProductService {
     product.productCode = productDto.productCode;
     product.productPolicyNumberPrefix = productDto.productPolicyNumberPrefix;
 
-    await this.productRepository.save(product);
+    // await this.productRepository.save(product);
     classEntity.products.push(product);
+    await this.classRepository.save(classEntity);
   };
 
   findOneProduct = async (id: string) => {
