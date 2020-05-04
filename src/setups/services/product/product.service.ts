@@ -24,6 +24,7 @@ export class ProductService {
       where: {
         id: Equal(id),
       },
+      relations: ['class'],
     });
 
     let product = new Product();
