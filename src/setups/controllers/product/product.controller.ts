@@ -22,6 +22,7 @@ export class ProductController {
 
   @Post(':id')
   createProduct(@Param('id') id: string, @Body() ProductDto: ProductDto) {
+    console.log('Class ID', id);
     return this.productService.createProduct(id, ProductDto);
   }
 

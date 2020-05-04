@@ -20,12 +20,15 @@ export class ProductService {
   };
 
   createProduct = async (id: string, productDto: ProductDto) => {
+    console.log(id);
     const classEntity = await this.classRepository.findOne({
       where: {
         id: Equal(id),
       },
       relations: ['products'],
     });
+
+    console.log(classEntity);
 
     let product = new Product();
     product.productName = productDto.productName;
