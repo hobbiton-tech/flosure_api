@@ -15,7 +15,15 @@ import { ClassRepository } from './repositories/class.repository';
 import { CommissionSetupsController } from './controllers/commission-setups/commission-setups.controller';
 import { CommissionSetupsService } from './services/commission-setups/commission-setups.service';
 import { CommissionSetupRepository } from './repositories/commission-setup.repository';
+import { CorperateClientEntityRepository } from './repositories/corperate-client.repository';
+import { IndividualClientEntityRepository } from './repositories/individual-client.repository';
 import { CommissionSetup } from './entities/commission-setup.entity';
+import { ClientServiceService } from './services/client-service/client-service.service';
+import { ClientControllerController } from './controllers/client-controller/client-controller.controller';
+import { CorperateClientsController } from './controllers/corperate-clients-controller/corperate-clients-controller.controller';
+import { IndividualClientsController } from './controllers/individual-clients-controller/individual-clients-controller.controller';
+import { IndividualClientService } from './services/individual-client-service/individual-client-service.service';
+import { CorperateClientService } from './services/corperate-client-service/corperate-client-service.service';
 
 @Module({
   imports: [
@@ -26,6 +34,8 @@ import { CommissionSetup } from './entities/commission-setup.entity';
       ProductRepository,
       ClassRepository,
       CommissionSetupRepository,
+      CorperateClientEntityRepository,
+      IndividualClientEntityRepository,
     ]),
   ],
   providers: [
@@ -34,6 +44,9 @@ import { CommissionSetup } from './entities/commission-setup.entity';
     CoverTypeService,
     PerilService,
     CommissionSetupsService,
+    ClientServiceService,
+    IndividualClientService,
+    CorperateClientService,
   ],
   controllers: [
     ClassController,
@@ -41,6 +54,9 @@ import { CommissionSetup } from './entities/commission-setup.entity';
     CoverTypeController,
     PerilController,
     CommissionSetupsController,
+    ClientControllerController,
+    CorperateClientsController,
+    IndividualClientsController,
   ],
 })
 export class SetupsModule {}
