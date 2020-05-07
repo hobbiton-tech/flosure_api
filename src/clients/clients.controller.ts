@@ -44,7 +44,7 @@ export class ClientsController {
   async updateCorporateClient(
     @Param('id') id: string,
     @Body() corporateClientsDto: corporateClientsDto,
-  ) {
+  ): Promise<corporateClientsDto & CorporateClientEntity> {
     return this.clientsService.updateCorporateClient(id, corporateClientsDto);
   }
 

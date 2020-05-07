@@ -34,15 +34,15 @@ export class ClientService {
     return this.corporateClientsRepository.findOneOrFail(id);
   }
 
-  updateCorporateClient = async (
+  async updateCorporateClient(
     id: string,
     corporateClientsDto: corporateClientsDto,
-  ) => {
+  ): Promise<corporateClientsDto & CorporateClientEntity> {
     return this.corporateClientsRepository.save({
       ...corporateClientsDto,
       id: id,
     });
-  };
+  }
 
   /**
    * This is section is for individual clients.
@@ -65,7 +65,7 @@ export class ClientService {
   async updateIndividualClient(
     id: string,
     individualClientsDto: individualClientsDto,
-  ): Promise<individualClientsDto & individualClientsDto> {
+  ): Promise<individualClientsDto & IndividualClientEntity> {
     return this.individualClientsRepository.save({
       ...individualClientsDto,
       id: id,
