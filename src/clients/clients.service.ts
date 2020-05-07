@@ -3,7 +3,8 @@ import { InjectRepository } from '@nestjs/typeorm';
 import { CorporateClientEntity } from 'src/setups/entities/corporate-clients.entity';
 import { IndividualClientEntity } from 'src/setups/entities/individual-clients.entity';
 import {} from 'typeorm';
-import { ClientsDto } from '../setups/dtos/clients.dto';
+import { individualClientsDto } from '../setups/dtos/individual-client.dto';
+import { corporateClientsDto } from '../setups/dtos/corporate-client.dto';
 import { CorporateClientEntityRepository } from '../setups/repositories/corporate-client.repository';
 import { IndividualClientEntityRepository } from '../setups/repositories/individual-client.repository';
 
@@ -23,31 +24,51 @@ export class ClientService {
     return this.corporateClientsRepository.find({});
   }
 
-  createCorporateClient = async (clientDto: ClientsDto) => {
-    return this.corporateClientsRepository.save(clientDto);
-  };
+  async createCorporateClient(
+    corporateClientsDto: corporateClientsDto,
+  ): Promise<corporateClientsDto & CorporateClientEntity> {
+    return this.corporateClientsRepository.save(corporateClientsDto);
+  }
 
   findOneCorporateClient = async (id: string) => {
     return this.corporateClientsRepository.findOneOrFail(id);
   };
 
-  updateCorporateClient = async (id: string, clientDto: ClientsDto) => {
-    return this.corporateClientsRepository.save({ ...clientDto, id: id });
+  updateCorporateClient = async (
+    id: string,
+    corporateClientsDto: corporateClientsDto,
+  ) => {
+    return this.corporateClientsRepository.save({
+      ...corporateClientsDto,
+      id: id,
+    });
   };
+
+  /**
+   * This is section is for individual clients.
+   */
 
   findAllIndividualClients = async () => {
     return this.individualClientsRepository.find({});
   };
 
-  createIndividualClient = async (clientDto: ClientsDto) => {
-    return this.individualClientsRepository.save(clientDto);
+  createIndividualClient = async (
+    individualClientsDto: individualClientsDto,
+  ) => {
+    return this.individualClientsRepository.save(individualClientsDto);
   };
 
   findOneIndividualClient = async (id: string) => {
     return this.individualClientsRepository.findOneOrFail(id);
   };
 
-  updateIndividualClient = async (id: string, clientDto: ClientsDto) => {
-    return this.individualClientsRepository.save({ ...clientDto, id: id });
+  updateIndividualClient = async (
+    id: string,
+    individualClientsDto: individualClientsDto,
+  ) => {
+    return this.individualClientsRepository.save({
+      ...individualClientsDto,
+      id: id,
+    });
   };
 }

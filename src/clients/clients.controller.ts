@@ -7,7 +7,8 @@ import {
   Delete,
   Get,
 } from '@nestjs/common';
-import { ClientsDto } from '../setups/dtos/clients.dto';
+import { individualClientsDto } from '../setups/dtos/individual-client.dto';
+import { corporateClientsDto } from '../setups/dtos/corporate-client.dto';
 import { ClientService } from './clients.service';
 import { CorporateClientEntity } from 'src/setups/entities/corporate-clients.entity';
 
@@ -24,8 +25,8 @@ export class ClientsController {
   }
 
   @Post('corporate')
-  createCorporateClient(@Body() clientDto: ClientsDto) {
-    return this.clientsService.createCorporateClient(clientDto);
+  createCorporateClient(@Body() corporateClientsDto: corporateClientsDto) {
+    return this.clientsService.createCorporateClient(corporateClientsDto);
   }
 
   @Get('corporate/:id')
@@ -36,9 +37,9 @@ export class ClientsController {
   @Put('corporate/:id')
   updateCorporateClient(
     @Param('id') id: string,
-    @Body() clientDto: ClientsDto,
+    @Body() corporateClientsDto: corporateClientsDto,
   ) {
-    return this.clientsService.updateCorporateClient(id, clientDto);
+    return this.clientsService.updateCorporateClient(id, corporateClientsDto);
   }
 
   @Get('individual')
@@ -47,8 +48,8 @@ export class ClientsController {
   }
 
   @Post('individual')
-  createIndividualClient(@Body() clientDto: ClientsDto) {
-    return this.clientsService.createIndividualClient(clientDto);
+  createIndividualClient(@Body() individualClientsDto: individualClientsDto) {
+    return this.clientsService.createIndividualClient(individualClientsDto);
   }
 
   @Get('individual/:id')
@@ -59,8 +60,8 @@ export class ClientsController {
   @Put('individual/:id')
   updateIndividualClient(
     @Param('id') id: string,
-    @Body() clientDto: ClientsDto,
+    @Body() individualClientsDto: individualClientsDto,
   ) {
-    return this.clientsService.updateIndividualClient(id, clientDto);
+    return this.clientsService.updateIndividualClient(id, individualClientsDto);
   }
 }
