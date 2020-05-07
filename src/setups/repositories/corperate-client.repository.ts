@@ -1,4 +1,4 @@
-import { EntityRepository, Repository } from 'typeorm';
+import { EntityRepository, Repository, Entity } from 'typeorm';
 import { CorperateClientEntity } from '../entities/corperate-clients.entity';
 
 @EntityRepository(CorperateClientEntity)

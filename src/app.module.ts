@@ -8,6 +8,7 @@ import { CorperateClientEntity } from 'src/setups/entities/corperate-clients.ent
 import { IndividualClientEntity } from 'src/setups/entities/individual-clients.entity';
 import { Product } from 'src/setups/entities/product.entity';
 import { CommissionSetup } from './setups/entities/commission-setup.entity';
+import { ClientsModule } from './clients/clients.module';
 
 @Module({
   imports: [
@@ -40,6 +41,7 @@ import { CommissionSetup } from './setups/entities/commission-setup.entity';
       autoLoadEntities: true,
     }),
     SetupsModule,
+    ClientsModule,
   ],
   controllers: [AppController],
   providers: [AppService],
