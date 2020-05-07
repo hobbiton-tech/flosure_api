@@ -1,25 +1,19 @@
 import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
-import {
-  CorperateClientsController,
-  IndividualClientsController,
-} from './clients.controller';
-import {
-  CorperateClientService,
-  IndividualClientService,
-} from './clients.service';
+import { ClientsController } from './clients.controller';
+import { ClientService } from './clients.service';
 import { IndividualClientEntityRepository } from 'src/setups/repositories/individual-client.repository';
-import { CorperateClientEntityRepository } from 'src/setups/repositories/corperate-client.repository';
+import { CorporateClientEntityRepository } from 'src/setups/repositories/corporate-client.repository';
 
 @Module({
   imports: [
     TypeOrmModule.forFeature([
-      CorperateClientEntityRepository,
+      CorporateClientEntityRepository,
       IndividualClientEntityRepository,
     ]),
   ],
 
-  controllers: [CorperateClientsController, IndividualClientsController],
-  providers: [CorperateClientService, IndividualClientService],
+  controllers: [ClientsController],
+  providers: [ClientService],
 })
 export class ClientsModule {}

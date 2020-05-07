@@ -2,7 +2,7 @@ import { ClientEntity } from './client.entity';
 import { Column, Entity } from 'typeorm';
 
 @Entity()
-export class CorperateClientEntity extends ClientEntity {
+export class CorporateClientEntity extends ClientEntity {
   @Column()
   registrationNumber: string;
 

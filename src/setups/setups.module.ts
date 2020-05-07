@@ -15,7 +15,7 @@ import { ClassRepository } from './repositories/class.repository';
 import { CommissionSetupsController } from './controllers/commission-setups/commission-setups.controller';
 import { CommissionSetupsService } from './services/commission-setups/commission-setups.service';
 import { CommissionSetupRepository } from './repositories/commission-setup.repository';
-import { CorperateClientEntityRepository } from './repositories/corperate-client.repository';
+import { CorporateClientEntityRepository } from './repositories/corporate-client.repository';
 import { IndividualClientEntityRepository } from './repositories/individual-client.repository';
 import { CommissionSetup } from './entities/commission-setup.entity';
 
@@ -33,7 +33,7 @@ import { CommissionSetup } from './entities/commission-setup.entity';
       ProductRepository,
       ClassRepository,
       CommissionSetupRepository,
-      CorperateClientEntityRepository,
+      CorporateClientEntityRepository,
       IndividualClientEntityRepository,
     ]),
   ],

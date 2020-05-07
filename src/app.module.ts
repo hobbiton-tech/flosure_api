@@ -4,7 +4,7 @@ import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { SetupsModule } from './setups/setups.module';
 import { Class } from 'src/setups/entities/class.entity';
-import { CorperateClientEntity } from 'src/setups/entities/corperate-clients.entity';
+import { CorporateClientEntity } from 'src/setups/entities/corporate-clients.entity';
 import { IndividualClientEntity } from 'src/setups/entities/individual-clients.entity';
 import { Product } from 'src/setups/entities/product.entity';
 import { CommissionSetup } from './setups/entities/commission-setup.entity';
@@ -34,7 +34,7 @@ import { ClientsModule } from './clients/clients.module';
         Class,
         Product,
         CommissionSetup,
-        CorperateClientEntity,
+        CorporateClientEntity,
         IndividualClientEntity,
       ],
       synchronize: true,

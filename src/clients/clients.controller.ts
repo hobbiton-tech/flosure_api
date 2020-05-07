@@ -8,79 +8,59 @@ import {
   Get,
 } from '@nestjs/common';
 import { ClientsDto } from '../setups/dtos/clients.dto';
-import {
-  CorperateClientService,
-  IndividualClientService,
-} from './clients.service';
+import { ClientService } from './clients.service';
+import { CorporateClientEntity } from 'src/setups/entities/corporate-clients.entity';
 
-//
-//
-//
-//individual clients endpoints
+/**
+ * This is the Cephas
+ */
 @Controller('clients')
-export class CorperateClientsController {
-  constructor(
-    private readonly corperateClientService: CorperateClientService,
-  ) {}
+export class ClientsController {
+  constructor(private readonly clientsService: ClientService) {}
 
-  @Get('corperate')
-  getAllClients() {
-    return this.corperateClientService.findAll();
+  @Get('corporate')
+  getAllCorporateClients(): Promise<CorporateClientEntity[]> {
+    return this.clientsService.findAllCorporateClients();
   }
 
-  @Post('corperate')
-  createClient(@Body() clientDto: ClientsDto) {
-    return this.corperateClientService.createClient(clientDto);
+  @Post('corporate')
+  createCorporateClient(@Body() clientDto: ClientsDto) {
+    return this.clientsService.createCorporateClient(clientDto);
   }
 
-  @Get('corperate/:id')
-  getOneClient(@Param('id') id: string) {
-    return this.corperateClientService.findOneClient(id);
+  @Get('corporate/:id')
+  findOneCorporate(@Param('id') id: string) {
+    return this.clientsService.findOneCorporateClient(id);
   }
 
-  @Put('corperate/:id')
-  updateClient(@Param('id') id: string, @Body() clientDto: ClientsDto) {
-    return this.corperateClientService.updateClient(id, clientDto);
+  @Put('corporate/:id')
+  updateCorporateClient(
+    @Param('id') id: string,
+    @Body() clientDto: ClientsDto,
+  ) {
+    return this.clientsService.updateCorporateClient(id, clientDto);
   }
-
-  @Delete('corperate/:id')
-  deleteClient(@Param('id') id: string) {
-    return this.corperateClientService.removeClient(id);
-  }
-}
-
-//
-//
-//
-//individual clients endpoint
-@Controller('clients')
-export class IndividualClientsController {
-  constructor(
-    private readonly individualClientService: IndividualClientService,
-  ) {}
 
   @Get('individual')
-  getAllClients() {
-    return this.individualClientService.findAll();
+  findAllIndividualClients() {
+    return this.clientsService.findAllIndividualClients();
   }
 
   @Post('individual')
-  createClient(@Body() clientDto: ClientsDto) {
-    return this.individualClientService.createClient(clientDto);
+  createIndividualClient(@Body() clientDto: ClientsDto) {
+    return this.clientsService.createIndividualClient(clientDto);
   }
 
   @Get('individual/:id')
-  getOneClient(@Param('id') id: string) {
-    return this.individualClientService.findOneClient(id);
+  findOneIndividualClient(@Param('id') id: string) {
+    return this.clientsService.findOneIndividualClient(id);
   }
 
   @Put('individual/:id')
-  updateClient(@Param('id') id: string, @Body() clientDto: ClientsDto) {
-    return this.individualClientService.updateClient(id, clientDto);
-  }
-
-  @Delete('individual/:id')
-  deleteClient(@Param('id') id: string) {
-    return this.individualClientService.removeClient(id);
+  updateIndividualClient(
+    @Param('id') id: string,
+    @Body() clientDto: ClientsDto,
+  ) {
+    return this.clientsService.updateIndividualClient(id, clientDto);
   }
 }
