@@ -11,6 +11,8 @@ import { individualClientsDto } from '../setups/dtos/individual-client.dto';
 import { corporateClientsDto } from '../setups/dtos/corporate-client.dto';
 import { ClientService } from './clients.service';
 import { CorporateClientEntity } from 'src/setups/entities/corporate-clients.entity';
+import { IndividualClientEntityRepository } from 'src/setups/repositories/individual-client.repository';
+import { IndividualClientEntity } from 'src/setups/entities/individual-clients.entity';
 
 /**
  * This is the Cephas
@@ -20,22 +22,26 @@ export class ClientsController {
   constructor(private readonly clientsService: ClientService) {}
 
   @Get('corporate')
-  getAllCorporateClients(): Promise<CorporateClientEntity[]> {
+  async getAllCorporateClients(): Promise<CorporateClientEntity[]> {
     return this.clientsService.findAllCorporateClients();
   }
 
   @Post('corporate')
-  createCorporateClient(@Body() corporateClientsDto: corporateClientsDto) {
+  async createCorporateClient(
+    @Body() corporateClientsDto: corporateClientsDto,
+  ): Promise<corporateClientsDto & CorporateClientEntity> {
     return this.clientsService.createCorporateClient(corporateClientsDto);
   }
 
   @Get('corporate/:id')
-  findOneCorporate(@Param('id') id: string) {
+  async findOneCorporate(
+    @Param('id') id: string,
+  ): Promise<CorporateClientEntity> {
     return this.clientsService.findOneCorporateClient(id);
   }
 
   @Put('corporate/:id')
-  updateCorporateClient(
+  async updateCorporateClient(
     @Param('id') id: string,
     @Body() corporateClientsDto: corporateClientsDto,
   ) {
@@ -43,17 +49,21 @@ export class ClientsController {
   }
 
   @Get('individual')
-  findAllIndividualClients() {
+  async findAllIndividualClients(): Promise<IndividualClientEntity[]> {
     return this.clientsService.findAllIndividualClients();
   }
 
   @Post('individual')
-  createIndividualClient(@Body() individualClientsDto: individualClientsDto) {
+  async createIndividualClient(
+    @Body() individualClientsDto: individualClientsDto,
+  ): Promise<individualClientsDto & IndividualClientEntity> {
     return this.clientsService.createIndividualClient(individualClientsDto);
   }
 
   @Get('individual/:id')
-  findOneIndividualClient(@Param('id') id: string) {
+  async findOneIndividualClient(
+    @Param('id') id: string,
+  ): Promise<IndividualClientEntity> {
     return this.clientsService.findOneIndividualClient(id);
   }
 

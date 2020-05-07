@@ -30,9 +30,9 @@ export class ClientService {
     return this.corporateClientsRepository.save(corporateClientsDto);
   }
 
-  findOneCorporateClient = async (id: string) => {
+  async findOneCorporateClient(id: string): Promise<CorporateClientEntity> {
     return this.corporateClientsRepository.findOneOrFail(id);
-  };
+  }
 
   updateCorporateClient = async (
     id: string,
@@ -48,19 +48,19 @@ export class ClientService {
    * This is section is for individual clients.
    */
 
-  findAllIndividualClients = async () => {
+  async findAllIndividualClients(): Promise<IndividualClientEntity[]> {
     return this.individualClientsRepository.find({});
-  };
+  }
 
-  createIndividualClient = async (
+  async createIndividualClient(
     individualClientsDto: individualClientsDto,
-  ) => {
+  ): Promise<individualClientsDto & IndividualClientEntity> {
     return this.individualClientsRepository.save(individualClientsDto);
-  };
+  }
 
-  findOneIndividualClient = async (id: string) => {
+  async findOneIndividualClient(id: string): Promise<IndividualClientEntity> {
     return this.individualClientsRepository.findOneOrFail(id);
-  };
+  }
 
   updateIndividualClient = async (
     id: string,
