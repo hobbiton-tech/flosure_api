@@ -62,13 +62,13 @@ export class ClientService {
     return this.individualClientsRepository.findOneOrFail(id);
   }
 
-  updateIndividualClient = async (
+  async updateIndividualClient(
     id: string,
     individualClientsDto: individualClientsDto,
-  ) => {
+  ): Promise<individualClientsDto & individualClientsDto> {
     return this.individualClientsRepository.save({
       ...individualClientsDto,
       id: id,
     });
-  };
+  }
 }

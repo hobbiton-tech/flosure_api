@@ -68,10 +68,10 @@ export class ClientsController {
   }
 
   @Put('individual/:id')
-  updateIndividualClient(
+  async updateIndividualClient(
     @Param('id') id: string,
     @Body() individualClientsDto: individualClientsDto,
-  ) {
+  ): Promise<individualClientsDto & IndividualClientEntity> {
     return this.clientsService.updateIndividualClient(id, individualClientsDto);
   }
 }
