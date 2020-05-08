@@ -5,7 +5,7 @@ export class UsersDto {
   firstName: string;
 
   @ApiProperty()
-  surName: string;
+  surname: string;
 
   @ApiProperty()
   email: string;
@@ -23,5 +23,5 @@ export class UsersDto {
   phoneNumber: string;
 
   @ApiProperty()
-  JobTitle: string;
+  jobTitle: string;
 }

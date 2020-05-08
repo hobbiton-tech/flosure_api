@@ -9,7 +9,7 @@ export class UsersEntity {
   firstName: string;
 
   @Column()
-  surName: string;
+  surname: string;
 
   @Column()
   email: string;
@@ -27,5 +27,5 @@ export class UsersEntity {
   phoneNumber: string;
 
   @Column()
-  JobTitle: string;
+  jobTitle: string;
 }
