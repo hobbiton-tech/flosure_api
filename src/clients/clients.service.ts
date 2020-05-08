@@ -2,7 +2,6 @@ import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { CorporateClientEntity } from 'src/setups/entities/corporate-clients.entity';
 import { IndividualClientEntity } from 'src/setups/entities/individual-clients.entity';
-import {} from 'typeorm';
 import { individualClientsDto } from '../setups/dtos/individual-client.dto';
 import { corporateClientsDto } from '../setups/dtos/corporate-client.dto';
 import { CorporateClientEntityRepository } from '../setups/repositories/corporate-client.repository';
