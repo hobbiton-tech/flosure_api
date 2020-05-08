@@ -9,8 +9,9 @@ import { CorporateClientEntityRepository } from '../setups/repositories/corporat
 import { IndividualClientEntityRepository } from '../setups/repositories/individual-client.repository';
 
 /**
- * This is Cephas's code. Don't modify.
+ * This is section is for corporate clients.
  */
+
 @Injectable()
 export class ClientService {
   constructor(
@@ -72,3 +73,4 @@ export class ClientService {
     });
   }
 }
+//********************************************************************* ©cephas**********************************************************************

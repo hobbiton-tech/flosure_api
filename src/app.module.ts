@@ -9,6 +9,8 @@ import { IndividualClientEntity } from 'src/setups/entities/individual-clients.e
 import { Product } from 'src/setups/entities/product.entity';
 import { CommissionSetup } from './setups/entities/commission-setup.entity';
 import { ClientsModule } from './clients/clients.module';
+import { IntermediaryModule } from './intermediary/intermediary.module';
+import { UsersModule } from './users/users.module';
 
 @Module({
   imports: [
@@ -42,6 +44,8 @@ import { ClientsModule } from './clients/clients.module';
     }),
     SetupsModule,
     ClientsModule,
+    IntermediaryModule,
+    UsersModule,
   ],
   controllers: [AppController],
   providers: [AppService],

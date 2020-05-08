@@ -1,12 +1,4 @@
-import {
-  Controller,
-  Post,
-  Body,
-  Param,
-  Put,
-  Delete,
-  Get,
-} from '@nestjs/common';
+import { Controller, Post, Body, Param, Put, Get } from '@nestjs/common';
 import { individualClientsDto } from '../setups/dtos/individual-client.dto';
 import { corporateClientsDto } from '../setups/dtos/corporate-client.dto';
 import { ClientService } from './clients.service';
@@ -16,6 +8,10 @@ import { IndividualClientEntity } from 'src/setups/entities/individual-clients.e
 
 /**
  * This is the Cephas
+ */
+
+/**
+ * this is the section for corperate clients
  */
 @Controller('clients')
 export class ClientsController {
@@ -47,6 +43,10 @@ export class ClientsController {
   ): Promise<corporateClientsDto & CorporateClientEntity> {
     return this.clientsService.updateCorporateClient(id, corporateClientsDto);
   }
+
+  /**
+   * this is the section for individual clients
+   */
 
   @Get('individual')
   async findAllIndividualClients(): Promise<IndividualClientEntity[]> {
