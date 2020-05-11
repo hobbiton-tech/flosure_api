@@ -39,7 +39,7 @@ import { UsersModule } from './users/users.module';
         CorporateClientEntity,
         IndividualClientEntity,
       ],
-      synchronize: true,
+      synchronize: false,
       autoLoadEntities: true,
     }),
     SetupsModule,
