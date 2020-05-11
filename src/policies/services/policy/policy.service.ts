@@ -113,13 +113,14 @@ export class PolicyService {
     policy.user = policyDto.user;
 
     for (let risk of policyDto.risks) {
+      for (let discount of risk.discounts) {
+        discounts.push(discount);
+      }
       for (let load of risk.loads) {
         loads.push(load);
       }
 
-      for (let discount of risk.discounts) {
-        discounts.push(discount);
-      }
+      
 
       risks.push(risk);
     }
