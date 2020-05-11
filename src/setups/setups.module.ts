@@ -15,16 +15,8 @@ import { ClassRepository } from './repositories/class.repository';
 import { CommissionSetupsController } from './controllers/commission-setups/commission-setups.controller';
 import { CommissionSetupsService } from './services/commission-setups/commission-setups.service';
 import { CommissionSetupRepository } from './repositories/commission-setup.repository';
-import { CorporateClientEntityRepository } from './repositories/corporate-client.repository';
-import { IndividualClientEntityRepository } from './repositories/individual-client.repository';
 import { CommissionSetup } from './entities/commission-setup.entity';
-import { CorporateClientEntity } from './entities/corporate-clients.entity';
-import { IndividualClientEntity } from './entities/individual-clients.entity';
 
-// import { CorperateClientsController } from './controllers/corperate-clients-controller/corperate-clients-controller.controller';
-// import { IndividualClientsController } from './controllers/individual-clients-controller/individual-clients-controller.controller';
-// import { IndividualClientService } from './services/individual-client-service/individual-client-service.service';
-// import { CorperateClientService } from './services/corperate-client-service/corperate-client-service.service';
 
 @Module({
   imports: [
@@ -35,10 +27,6 @@ import { IndividualClientEntity } from './entities/individual-clients.entity';
       ProductRepository,
       ClassRepository,
       CommissionSetupRepository,
-      CorporateClientEntity,
-      IndividualClientEntity,
-      CorporateClientEntityRepository,
-      IndividualClientEntityRepository,
     ]),
   ],
   providers: [
@@ -47,8 +35,6 @@ import { IndividualClientEntity } from './entities/individual-clients.entity';
     CoverTypeService,
     PerilService,
     CommissionSetupsService,
-    // IndividualClientService,
-    // CorperateClientService,
   ],
   controllers: [
     ClassController,
@@ -56,8 +42,6 @@ import { IndividualClientEntity } from './entities/individual-clients.entity';
     CoverTypeController,
     PerilController,
     CommissionSetupsController,
-    // CorperateClientsController,
-    // IndividualClientsController,
   ],
 })
 export class SetupsModule {}

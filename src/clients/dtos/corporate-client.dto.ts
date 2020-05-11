@@ -1,8 +1,7 @@
-export class individualClientsDto {
+export class CorporateClientsDto {
   id: string;
   email?: string;
   phone: string;
-  clientID: string;
   address: string;
   dateCreated: Date;
   dateUpdated: Date;
@@ -14,20 +13,17 @@ export class individualClientsDto {
   branch: string;
   accountType: string;
 
-  title: string;
-  firstName: string;
-  lastName: string;
-  middleName: string;
-  maritalStatus: string;
-  nationality: string;
-  gender: GenderType;
-  idType: IDType;
-  idNumber: string;
-  dateOfBirth: Date;
-  occupation: OccupationType;
+  registrationNumber: string;
+  clientID: string;
+  contactFirstName: string;
+  contactLastName: string;
+  contactEmail: string;
+  companyName: string;
+  taxPin: number;
 }
+
+export type ClientType = 'Individual' | 'Corporate';
+export type ClientStatus = 'Active' | 'Inactive';
 export type GenderType = 'Male' | 'Female';
 export type OccupationType = 'Employed | Unemployed | Student';
 export type IDType = 'NRC' | 'Passport' | 'License';
-export type ClientType = 'Individual' | 'Corporate';
-export type ClientStatus = 'Active' | 'Inactive';

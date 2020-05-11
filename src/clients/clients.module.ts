@@ -2,10 +2,10 @@ import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { ClientsController } from './clients.controller';
 import { ClientService } from './clients.service';
-import { IndividualClientEntityRepository } from 'src/setups/repositories/individual-client.repository';
-import { CorporateClientEntityRepository } from 'src/setups/repositories/corporate-client.repository';
-import { IndividualClientEntity } from 'src/setups/entities/individual-clients.entity';
-import { CorporateClientEntity } from 'src/setups/entities/corporate-clients.entity';
+import { CorporateClientEntity } from './entities/corporate-clients.entity';
+import { IndividualClientEntity } from './entities/individual-clients.entity';
+import { CorporateClientEntityRepository } from './repositories/corporate-client.repository';
+import { IndividualClientEntityRepository } from './repositories/individual-client.repository';
 
 @Module({
   imports: [

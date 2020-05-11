@@ -8,8 +8,9 @@ import {
   Delete,
   UseGuards,
 } from '@nestjs/common';
-import { RiskDto } from '../../dtos/risk.dto';
-import { RiskService } from '../../services/risk/risk.service';
+import { RiskDto } from './dtos/risk.dto';
+import { RiskService } from './risk.service';
+
 
 @Controller('risk')
 export class RiskController {

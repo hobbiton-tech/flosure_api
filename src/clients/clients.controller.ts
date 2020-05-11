@@ -1,10 +1,10 @@
 import { Controller, Post, Body, Param, Put, Get } from '@nestjs/common';
-import { individualClientsDto } from '../setups/dtos/individual-client.dto';
-import { corporateClientsDto } from '../setups/dtos/corporate-client.dto';
 import { ClientService } from './clients.service';
-import { CorporateClientEntity } from 'src/setups/entities/corporate-clients.entity';
-import { IndividualClientEntityRepository } from 'src/setups/repositories/individual-client.repository';
-import { IndividualClientEntity } from 'src/setups/entities/individual-clients.entity';
+import { CorporateClientEntity } from './entities/corporate-clients.entity';
+import { IndividualClientEntity } from './entities/individual-clients.entity';
+import { CorporateClientsDto } from './dtos/corporate-client.dto';
+import { IndividualClientsDto } from './dtos/individual-client.dto';
+
 
 /**
  * This is the Cephas
@@ -24,8 +24,8 @@ export class ClientsController {
 
   @Post('corporate')
   async createCorporateClient(
-    @Body() corporateClientsDto: corporateClientsDto,
-  ): Promise<corporateClientsDto & CorporateClientEntity> {
+    @Body() corporateClientsDto: CorporateClientsDto,
+  ): Promise<CorporateClientsDto & CorporateClientEntity> {
     return this.clientsService.createCorporateClient(corporateClientsDto);
   }
 
@@ -39,8 +39,8 @@ export class ClientsController {
   @Put('corporate/:id')
   async updateCorporateClient(
     @Param('id') id: string,
-    @Body() corporateClientsDto: corporateClientsDto,
-  ): Promise<corporateClientsDto & CorporateClientEntity> {
+    @Body() corporateClientsDto: CorporateClientsDto,
+  ): Promise<CorporateClientsDto & CorporateClientEntity> {
     return this.clientsService.updateCorporateClient(id, corporateClientsDto);
   }
 
@@ -55,8 +55,8 @@ export class ClientsController {
 
   @Post('individual')
   async createIndividualClient(
-    @Body() individualClientsDto: individualClientsDto,
-  ): Promise<individualClientsDto & IndividualClientEntity> {
+    @Body() individualClientsDto: IndividualClientsDto,
+  ): Promise<IndividualClientsDto & IndividualClientEntity> {
     return this.clientsService.createIndividualClient(individualClientsDto);
   }
 
@@ -70,8 +70,8 @@ export class ClientsController {
   @Put('individual/:id')
   async updateIndividualClient(
     @Param('id') id: string,
-    @Body() individualClientsDto: individualClientsDto,
-  ): Promise<individualClientsDto & IndividualClientEntity> {
+    @Body() individualClientsDto: IndividualClientsDto,
+  ): Promise<IndividualClientsDto & IndividualClientEntity> {
     return this.clientsService.updateIndividualClient(id, individualClientsDto);
   }
 }

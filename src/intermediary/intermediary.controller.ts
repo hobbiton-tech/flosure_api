@@ -1,11 +1,11 @@
 import { Controller, Post, Body, Param, Put, Get } from '@nestjs/common';
 import { IntermediaryService } from './intermediary.service';
-import { AgentsEntity } from 'src/setups/entities/agents.entity';
-import { BrokerEntity } from 'src/setups/entities/broker.entity';
 import { SalesRepresentativeEntity } from 'src/setups/entities/sales-representative.entity';
-import { AgentsDto } from 'src/setups/dtos/agents.dto';
-import { BrokersDto } from 'src/setups/dtos/brokers.dto';
-import { SalesRepresentativesDto } from 'src/setups/dtos/sales-representatives.dto';
+import { AgentsEntity } from './entities/agents.entity';
+import { BrokerEntity } from './entities/broker.entity';
+import { BrokersDto } from './dtos/brokers.dto';
+import { AgentsDto } from './dtos/agents.dto';
+import { SalesRepresentativesDto } from './dtos/sales-representatives.dto';
 
 @Controller('intermediary')
 export class IntermediaryController {
@@ -68,19 +68,19 @@ export class IntermediaryController {
    * this is the section for individual clients
    *
    */
-  @Get('sales-presentative/:id')
+  @Get('sales-representative/:id')
   async findOneSalesRepresentative(
     @Param('id') id: string,
   ): Promise<SalesRepresentativeEntity> {
     return this.intermediaryService.findOneSalesRepresentative(id);
   }
 
-  @Get('sales-presentative')
+  @Get('sales-representative')
   async findSalesRepresentative(): Promise<SalesRepresentativeEntity[]> {
     return this.intermediaryService.findAllSalesRepresentatives();
   }
 
-  @Post('sales-presentative')
+  @Post('sales-representative')
   async createSalesRepresentative(
     @Body() salesRepresentativeDto: SalesRepresentativesDto,
   ): Promise<SalesRepresentativesDto & SalesRepresentativeEntity> {
@@ -89,7 +89,7 @@ export class IntermediaryController {
     );
   }
 
-  @Put('sales-presentativ/:id')
+  @Put('sales-representativ/:id')
   async updateSalesRepresentative(
     @Param('id') id: string,
     @Body() salesRepresentativeDto: SalesRepresentativesDto,

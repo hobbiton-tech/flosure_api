@@ -8,9 +8,9 @@ import {
   Delete,
   UseGuards,
 } from '@nestjs/common';
+import { PolicyService } from './services/policy/policy.service';
+import { PolicyDto } from './dtos/policy.dto';
 
-import { PolicyDto } from '../../dtos/policy.dto';
-import { PolicyService } from '../../services/policy/policy.service';
 
 @Controller('policy')
 export class PolicyController {

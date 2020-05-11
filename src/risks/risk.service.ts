@@ -1,8 +1,8 @@
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
-import { RiskDto } from '../../dtos/risk.dto';
-import { Risk } from '../../entities/risk.entity';
-import { RiskRepository } from '../../repositories/risk.repository';
+import { Risk } from './entities/risk.entity';
+import { RiskRepository } from './repositories/risk.repository';
+import { RiskDto } from './dtos/risk.dto';
 
 @Injectable()
 export class RiskService {

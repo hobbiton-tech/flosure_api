@@ -1,6 +1,5 @@
 import { Module } from '@nestjs/common';
 import { PolicyService } from './services/policy/policy.service';
-import { PolicyController } from './controllers/policy/policy.controller';
 import { Policy } from './entities/policy.entity';
 import { PolicyBackUp } from './entities/policy-backup.entity';
 import {
@@ -9,6 +8,7 @@ import {
 } from './repositories/policy.repository';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { RiskRepository } from 'src/risks/repositories/risk.repository';
+import { PolicyController } from './policy.controller';
 
 @Module({
   imports: [

@@ -8,6 +8,7 @@ import {
   JoinColumn,
 } from 'typeorm';
 import { Risk } from 'src/risks/entities/risk.entity';
+import { IntermediariesEntity } from 'src/intermediary/entities/intermediaries.entity';
 
 @Entity()
 export class Quotation {

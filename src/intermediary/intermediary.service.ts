@@ -1,17 +1,15 @@
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
-import { AgentsEntity } from 'src/setups/entities/agents.entity';
-import { BrokerEntity } from 'src/setups/entities/broker.entity';
+import { AgentsEntity } from './entities/agents.entity';
+import { AgentsEntityRepository } from './repositories/agents.repository';
+import { BrokerEntity } from './entities/broker.entity';
+import { BrokerEntityRepository } from './repositories/broker.repository';
 import { SalesRepresentativeEntity } from 'src/setups/entities/sales-representative.entity';
-import { AgentsDto } from '../setups/dtos/agents.dto';
-import {} from 'typeorm';
-import { BrokersDto } from '../setups/dtos/brokers.dto';
-import { SalesRepresentativesDto } from '../setups/dtos/sales-representatives.dto';
-import {
-  AgentsEntityRepository,
-  BrokerEntityRepository,
-  SalesRepresentativeEntityRepository,
-} from 'src/setups/repositories/intermediaries.repository';
+import { SalesRepresentativeEntityRepository } from './repositories/sales-representative.repository';
+import { AgentsDto } from './dtos/agents.dto';
+import { BrokersDto } from './dtos/brokers.dto';
+import { SalesRepresentativesDto } from './dtos/sales-representatives.dto';
+
 
 @Injectable()
 export class IntermediaryService {

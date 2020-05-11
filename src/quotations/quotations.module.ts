@@ -1,7 +1,7 @@
 import { Module } from '@nestjs/common';
-import { QuotationService } from './services/quotation/quotation.service';
 import { QuotationController } from './controllers/quotation/quotation.controller';
 import { QuotationRepository } from './repositories/quotation.repository';
+import { QuotationService } from './quotation.service';
 
 @Module({
   providers: [QuotationService, QuotationRepository],

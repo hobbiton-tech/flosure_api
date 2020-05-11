@@ -1,11 +1,12 @@
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
-import { CorporateClientEntity } from 'src/setups/entities/corporate-clients.entity';
-import { IndividualClientEntity } from 'src/setups/entities/individual-clients.entity';
-import { individualClientsDto } from '../setups/dtos/individual-client.dto';
-import { corporateClientsDto } from '../setups/dtos/corporate-client.dto';
-import { CorporateClientEntityRepository } from '../setups/repositories/corporate-client.repository';
-import { IndividualClientEntityRepository } from '../setups/repositories/individual-client.repository';
+import { CorporateClientEntity } from './entities/corporate-clients.entity';
+import { CorporateClientEntityRepository } from './repositories/corporate-client.repository';
+import { IndividualClientEntity } from './entities/individual-clients.entity';
+import { IndividualClientEntityRepository } from './repositories/individual-client.repository';
+import { CorporateClientsDto } from './dtos/corporate-client.dto';
+import { IndividualClientsDto } from './dtos/individual-client.dto';
+
 
 /**
  * This is section is for corporate clients.
@@ -25,8 +26,8 @@ export class ClientService {
   }
 
   async createCorporateClient(
-    corporateClientsDto: corporateClientsDto,
-  ): Promise<corporateClientsDto & CorporateClientEntity> {
+    corporateClientsDto: CorporateClientsDto,
+  ): Promise<CorporateClientsDto & CorporateClientEntity> {
     return this.corporateClientsRepository.save(corporateClientsDto);
   }
 
@@ -36,8 +37,8 @@ export class ClientService {
 
   async updateCorporateClient(
     id: string,
-    corporateClientsDto: corporateClientsDto,
-  ): Promise<corporateClientsDto & CorporateClientEntity> {
+    corporateClientsDto: CorporateClientsDto,
+  ): Promise<CorporateClientsDto & CorporateClientEntity> {
     return this.corporateClientsRepository.save({
       ...corporateClientsDto,
       id: id,
@@ -53,8 +54,8 @@ export class ClientService {
   }
 
   async createIndividualClient(
-    individualClientsDto: individualClientsDto,
-  ): Promise<individualClientsDto & IndividualClientEntity> {
+    individualClientsDto: IndividualClientsDto,
+  ): Promise<IndividualClientsDto & IndividualClientEntity> {
     return this.individualClientsRepository.save(individualClientsDto);
   }
 
@@ -64,8 +65,8 @@ export class ClientService {
 
   async updateIndividualClient(
     id: string,
-    individualClientsDto: individualClientsDto,
-  ): Promise<individualClientsDto & IndividualClientEntity> {
+    individualClientsDto: IndividualClientsDto,
+  ): Promise<IndividualClientsDto & IndividualClientEntity> {
     return this.individualClientsRepository.save({
       ...individualClientsDto,
       id: id,

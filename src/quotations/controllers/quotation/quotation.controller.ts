@@ -8,8 +8,8 @@ import {
   Delete,
   UseGuards,
 } from '@nestjs/common';
-import { QuotationService } from 'src/quotations/services/quotation/quotation.service';
 import { QuotationDto } from 'src/quotations/dtos/quotation.dto';
+import { QuotationService } from 'src/quotations/quotation.service';
 
 @Controller('quotation')
 export class QuotationController {
