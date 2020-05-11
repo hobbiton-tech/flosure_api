@@ -75,12 +75,12 @@ export class IntermediaryController {
     return this.intermediaryService.findOneSalesRepresentative(id);
   }
 
-  @Get('sales-presentative')
+  @Get('sales-representative')
   async findSalesRepresentative(): Promise<SalesRepresentativeEntity[]> {
     return this.intermediaryService.findAllSalesRepresentatives();
   }
 
-  @Post('sales-presentative')
+  @Post('sales-representative')
   async createSalesRepresentative(
     @Body() salesRepresentativeDto: SalesRepresentativesDto,
   ): Promise<SalesRepresentativesDto & SalesRepresentativeEntity> {
@@ -89,7 +89,7 @@ export class IntermediaryController {
     );
   }
 
-  @Put('sales-presentativ/:id')
+  @Put('sales-representativ/:id')
   async updateSalesRepresentative(
     @Param('id') id: string,
     @Body() salesRepresentativeDto: SalesRepresentativesDto,
