@@ -18,6 +18,8 @@ import { CommissionSetupRepository } from './repositories/commission-setup.repos
 import { CorporateClientEntityRepository } from './repositories/corporate-client.repository';
 import { IndividualClientEntityRepository } from './repositories/individual-client.repository';
 import { CommissionSetup } from './entities/commission-setup.entity';
+import { CorporateClientEntity } from './entities/corporate-clients.entity';
+import { IndividualClientEntity } from './entities/individual-clients.entity';
 
 // import { CorperateClientsController } from './controllers/corperate-clients-controller/corperate-clients-controller.controller';
 // import { IndividualClientsController } from './controllers/individual-clients-controller/individual-clients-controller.controller';
@@ -33,6 +35,8 @@ import { CommissionSetup } from './entities/commission-setup.entity';
       ProductRepository,
       ClassRepository,
       CommissionSetupRepository,
+      CorporateClientEntity,
+      IndividualClientEntity,
       CorporateClientEntityRepository,
       IndividualClientEntityRepository,
     ]),
