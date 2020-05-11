@@ -116,14 +116,15 @@ export class PolicyService {
       for (let discount of risk.discounts) {
         discounts.push(discount);
       }
+
       for (let load of risk.loads) {
         loads.push(load);
       }
 
-      
-
       risks.push(risk);
     }
+
+    //.....
 
     policy.risks = risks;
 
