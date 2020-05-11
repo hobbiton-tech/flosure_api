@@ -10,6 +10,9 @@ export class RiskDto {
   readonly riskEndDate: Date;
 
   @ApiProperty()
+  readonly riskQuarter: Date;
+
+  @ApiProperty()
   readonly regNumber: string;
 
   @ApiProperty()

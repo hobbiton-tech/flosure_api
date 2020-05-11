@@ -22,6 +22,9 @@ export class Risk {
   riskEndDate: Date;
 
   @Column()
+  riskQuarter: Date;
+
+  @Column()
   regNumber: string;
 
   @Column()
