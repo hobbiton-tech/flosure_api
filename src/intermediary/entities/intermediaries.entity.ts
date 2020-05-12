@@ -1,6 +1,5 @@
 import { Entity, PrimaryGeneratedColumn, Column, OneToMany } from 'typeorm';
 
-@Entity()
 export abstract class IntermediariesEntity {
   @PrimaryGeneratedColumn('uuid')
   id: string;

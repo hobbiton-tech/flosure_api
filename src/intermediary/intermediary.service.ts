@@ -4,12 +4,11 @@ import { AgentsEntity } from './entities/agents.entity';
 import { AgentsEntityRepository } from './repositories/agents.repository';
 import { BrokerEntity } from './entities/broker.entity';
 import { BrokerEntityRepository } from './repositories/broker.repository';
-import { SalesRepresentativeEntity } from 'src/setups/entities/sales-representative.entity';
 import { SalesRepresentativeEntityRepository } from './repositories/sales-representative.repository';
 import { AgentsDto } from './dtos/agents.dto';
 import { BrokersDto } from './dtos/brokers.dto';
 import { SalesRepresentativesDto } from './dtos/sales-representatives.dto';
-
+import { SalesRepresentativeEntity } from './entities/sales-representative.entity';
 
 @Injectable()
 export class IntermediaryService {

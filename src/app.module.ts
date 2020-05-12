@@ -13,22 +13,22 @@ import { ClientsModule } from './clients/clients.module';
 import { IntermediaryModule } from './intermediary/intermediary.module';
 import { UsersModule } from './users/users.module';
 import { QuotationsModule } from './quotations/quotations.module';
-import { ReceiptsModule } from './receipts/receipts.module';
+import { PaymentsModule } from './payments/payments.module';
 
 @Module({
   imports: [
     TypeOrmModule.forRoot({
-      type: 'postgres',
-      host: 'ec2-52-73-247-67.compute-1.amazonaws.com',
-      port: 5432,
-      username: 'qppyocwdpbilrq',
-      password:
-        '831626c55d6f55a3d431280f046d0685000a844f54d24276647614dc999be92d',
-      database: 'depqp2jclcrgp3',
-      entities: [Class, Product, CommissionSetup],
-      synchronize: true,
-      autoLoadEntities: true,
-      logging: true,
+      // type: 'postgres',
+      // host: 'ec2-52-73-247-67.compute-1.amazonaws.com',
+      // port: 5432,
+      // username: 'qppyocwdpbilrq',
+      // password:
+      //   '831626c55d6f55a3d431280f046d0685000a844f54d24276647614dc999be92d',
+      // database: 'depqp2jclcrgp3',
+      // entities: [Class, Product, CommissionSetup],
+      // synchronize: true,
+      // autoLoadEntities: true,
+      // logging: true,
 
       // type: 'postgres',
       // host: 'localhost',
@@ -46,6 +46,16 @@ import { ReceiptsModule } from './receipts/receipts.module';
       // synchronize: true,
       // autoLoadEntities: true,
       // logging: true,
+
+      type: 'postgres',
+      host: 'localhost',
+      port: 5432,
+      username: 'postgres',
+      password: '1',
+      database: 'postgres',
+      entities: [Class, Product, CommissionSetup],
+      synchronize: true,
+      autoLoadEntities: true,
     }),
     SetupsModule,
     EndorsementsModule,
@@ -55,7 +65,8 @@ import { ReceiptsModule } from './receipts/receipts.module';
     UsersModule,
     IntermediaryModule,
     QuotationsModule,
-    ReceiptsModule,
+
+    PaymentsModule,
   ],
   controllers: [AppController],
   providers: [AppService],

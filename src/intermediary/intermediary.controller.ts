@@ -1,11 +1,11 @@
 import { Controller, Post, Body, Param, Put, Get } from '@nestjs/common';
 import { IntermediaryService } from './intermediary.service';
-import { SalesRepresentativeEntity } from 'src/setups/entities/sales-representative.entity';
 import { AgentsEntity } from './entities/agents.entity';
 import { BrokerEntity } from './entities/broker.entity';
 import { BrokersDto } from './dtos/brokers.dto';
 import { AgentsDto } from './dtos/agents.dto';
 import { SalesRepresentativesDto } from './dtos/sales-representatives.dto';
+import { SalesRepresentativeEntity } from './entities/sales-representative.entity';
 
 @Controller('intermediary')
 export class IntermediaryController {
