@@ -7,6 +7,9 @@ import { IndividualClientEntityRepository } from './repositories/individual-clie
 import { CorporateClientsDto } from './dtos/corporate-client.dto';
 import { IndividualClientsDto } from './dtos/individual-client.dto';
 
+import { PrismaClient, Client } from '@prisma/client'
+import { ClientsDto } from './dtos/clients.dto';
+
 
 /**
  * This is section is for corporate clients.
@@ -14,12 +17,41 @@ import { IndividualClientsDto } from './dtos/individual-client.dto';
 
 @Injectable()
 export class ClientService {
+
+  primsa  = new PrismaClient();
+
   constructor(
     @InjectRepository(CorporateClientEntity)
     private readonly corporateClientsRepository: CorporateClientEntityRepository,
     @InjectRepository(IndividualClientEntity)
     private readonly individualClientsRepository: IndividualClientEntityRepository,
   ) {}
+
+  // async createClient(dto: ClientsDto): Promise<Client> {
+  //   return this.primsa.client.create({
+  //     data: {
+  //       firstName: dto.firstName,
+  //       lastName: dto.lastName,
+  //       clientType: dto.clientType,
+  //       CompanyDetail: {
+  //         create: {
+            
+  //         }
+  //       }
+  //     }
+  //   })
+  // }
+
+  // async getAgent() {
+  //   return this.primsa.intermediary.findOne({
+  //     where: {
+  //       id: '7483',
+  //     },
+  //     include: {
+  //       Policy: true,
+  //     }
+  //   })
+  // }
 
   async findAllCorporateClients(): Promise<CorporateClientEntity[]> {
     return this.corporateClientsRepository.find({});

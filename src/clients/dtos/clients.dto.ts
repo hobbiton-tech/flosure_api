@@ -41,3 +41,11 @@ export type ClientStatus = 'Active' | 'Inactive';
 export type GenderType = 'Male' | 'Female';
 export type OccupationType = 'Employed | Unemployed | Student';
 export type IDType = 'NRC' | 'Passport' | 'License';
+
+// export class CreateCorporateClientDto {
+
+// }
+
+// export class CreateIndividualClientDTO {
+
+// }

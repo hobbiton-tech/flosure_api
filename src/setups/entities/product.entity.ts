@@ -1,5 +1,5 @@
 import { Entity, PrimaryGeneratedColumn, Column, ManyToOne } from 'typeorm';
-import { Class } from './class.entity';
+import { ProductClass } from './class.entity';
 
 @Entity()
 export class Product {
@@ -22,8 +22,8 @@ export class Product {
   productClaimNumberPrefix: string;
 
   @ManyToOne(
-    type => Class,
+    type => ProductClass,
     x => x.products,
   )
-  class: Class;
+  class: ProductClass;
 }

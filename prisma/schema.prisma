@@ -1,0 +1,433 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model AccountDetails {
+  bank         String
+  branch       String
+  dateCreated  DateTime?      @default(now())
+  dateUpdated  DateTime?      @default(now())
+  id           String         @id
+  tpinNumber   String?
+  Intermediary Intermediary[]
+}
+
+model Client {
+  address       String?
+  clientType    ClientType
+  dateCreated   DateTime?       @default(now())
+  dateUpdated   DateTime?       @default(now())
+  email         String?
+  firstName     String
+  id            String          @id
+  idNumber      String
+  idType        IdType
+  lastName      String
+  phoneNumber   String
+  CompanyDetail CompanyDetail[]
+  Policy        Policy[]
+}
+
+model Commission {
+  commission     Float
+  dateCreated    DateTime      @default(now())
+  dateUpdated    DateTime      @default(now())
+  id             String        @id
+  intermediaryId String?
+  Intermediary   Intermediary? @relation(fields: [intermediaryId], references: [id])
+}
+
+model CompanyDetail {
+  clientId       String?
+  companyAddress String
+  companyEmail   String
+  companyName    String
+  dateCreated    DateTime?      @default(now())
+  dateUpdated    DateTime?      @default(now())
+  id             String         @id
+  tpinNumber     String
+  Client         Client?        @relation(fields: [clientId], references: [id])
+  Intermediary   Intermediary[]
+}
+
+model Intermediary {
+  accountId      String?
+  companyid      String?
+  dateCreated    DateTime?       @default(now())
+  dateUpdated    DateTime?       @default(now())
+  email          String?
+  firstName      String
+  gender         Gender?         @default(dbgenerated())
+  id             String          @id
+  lastName       String
+  phoneNumber    String
+  AccountDetails AccountDetails? @relation(fields: [accountId], references: [id])
+  CompanyDetail  CompanyDetail?  @relation(fields: [companyid], references: [id])
+  Commission     Commission[]
+  Policy         Policy[]
+}
+
+model Policy {
+  clientId       String
+  dateCreated    DateTime?    @default(now())
+  dateOfIssue    DateTime
+  dateUpdated    DateTime?    @default(now())
+  endDate        DateTime
+  id             String       @id
+  intermediaryId String
+  policyNumber   String
+  startDate      DateTime
+  timeOfIssue    DateTime
+  Client         Client       @relation(fields: [clientId], references: [id])
+  Intermediary   Intermediary @relation(fields: [intermediaryId], references: [id])
+}
+
+model Risk {
+  basicPremium     Float
+  dateCreated      DateTime?     @default(now())
+  dateUpdated      DateTime?     @default(now())
+  discountRate     Float
+  discountSubTotal Float
+  endDate          DateTime
+  estimatedValue   Float
+  id               String        @id
+  insuranceType    InsuranceType
+  loadingTotal     Float
+  netPremium       Float
+  premiumLevy      Float
+  premiumRate      Float
+  productType      ProductType
+  startDate        DateTime
+  sumInsured       Float
+  vehicleId        String?       @unique
+  Vehicle          Vehicle?      @relation(fields: [vehicleId], references: [id])
+}
+
+model Vehicle {
+  chassisNumber     String?
+  dateCreated       DateTime? @default(now())
+  dateUpdated       DateTime? @default(now())
+  engineNumber      String?
+  estimatedValue    Float?
+  id                String    @id
+  regNumber         String
+  vehicleMake       String
+  vehicleModel      String
+  yearOfManufacture String
+  Risk              Risk?
+}
+
+model agents_entity {
+  accountName        String
+  accountNumber      Int
+  accountType        String
+  address            String
+  bank               String
+  branch             String
+  companyName        String
+  contactAddess      String
+  contactEmail       String
+  contactFirstName   String
+  contactLastName    String
+  contactPhone       String
+  dateCreated        DateTime
+  email              String
+  id                 String   @default(dbgenerated()) @id
+  intermediaryId     String
+  intermediaryType   String
+  phone              String
+  registrationNumber String
+  tPinNumber         String
+}
+
+model broker_entity {
+  accountName        String
+  accountNumber      Int
+  accountType        String
+  address            String
+  bank               String
+  branch             String
+  companyName        String
+  contactAddess      String
+  contactEmail       String
+  contactFirstName   String
+  contactLastName    String
+  contactPhone       String
+  dateCreated        DateTime
+  email              String
+  id                 String   @default(dbgenerated()) @id
+  intermediaryId     String
+  intermediaryType   String
+  phone              String
+  registrationNumber String
+  tPinNumber         String
+}
+
+model commission_setup {
+  commission       Int
+  id               String @default(dbgenerated()) @id
+  intermediaryName String
+  intermediaryType String
+  productClass     String
+  productName      String
+}
+
+model corporate_client_entity {
+  accountName        String
+  accountNumber      Int
+  accountType        String
+  address            String
+  bank               String
+  branch             String
+  clientID           String
+  clientType         String
+  companyName        String
+  contactEmail       String
+  contactFirstName   String
+  contactLastName    String
+  dateCreated        DateTime
+  dateUpdated        DateTime
+  id                 String   @default(dbgenerated()) @id
+  phone              String
+  registrationNumber String
+  status             String
+  taxPin             Int
+}
+
+model discount {
+  amount       Int
+  discountType String
+  id           String  @default(dbgenerated()) @id
+  riskId       String?
+  risk         risk?   @relation(fields: [riskId], references: [id])
+}
+
+model endorsement {
+  dateCreated                              DateTime
+  dateUpdated                              DateTime
+  effectDate                               DateTime
+  id                                       String          @default(dbgenerated()) @id
+  policyId                                 String?         @unique
+  remark                                   String
+  status                                   String
+  type                                     String
+  policy_endorsement_policyIdTopolicy      policy?         @relation("endorsement_policyIdTopolicy", fields: [policyId], references: [id])
+  policy_endorsementTopolicy_endorsementId policy?         @relation("endorsementTopolicy_endorsementId")
+  policy_back_up                           policy_back_up?
+}
+
+model individual_client_entity {
+  accountName   String
+  accountNumber Int
+  accountType   String
+  address       String
+  bank          String
+  branch        String
+  clientID      String
+  clientType    String
+  dateCreated   DateTime
+  dateOfBirth   DateTime
+  dateUpdated   DateTime
+  firstName     String
+  gender        String
+  id            String   @default(dbgenerated()) @id
+  idNumber      String
+  idType        String
+  lastName      String
+  maritalStatus String
+  middleName    String?
+  nationality   String
+  occupation    String
+  phone         String
+  status        String
+  title         String
+}
+
+model load {
+  amount   Int
+  id       String  @default(dbgenerated()) @id
+  loadType String
+  riskId   String?
+  risk     risk?   @relation(fields: [riskId], references: [id])
+}
+
+model policy {
+  branch                                        String
+  client                                        String
+  clientCode                                    String
+  currency                                      String
+  dateOfIssue                                   DateTime
+  endDate                                       DateTime
+  endorsementId                                 String?      @unique
+  expiryDate                                    DateTime
+  id                                            String       @default(dbgenerated()) @id
+  insuranceCompany                              String
+  nameOfInsured                                 String
+  netPremium                                    Int
+  paymentPlan                                   String
+  policyNumber                                  String
+  preparedBy                                    String
+  product                                       String
+  productType                                   String
+  quarter                                       String
+  receiptStatus                                 String
+  startDate                                     DateTime
+  status                                        String
+  timeOfIssue                                   DateTime
+  town                                          String
+  underwritingYear                              DateTime
+  user                                          String
+  endorsement_endorsementTopolicy_endorsementId endorsement? @relation("endorsementTopolicy_endorsementId", fields: [endorsementId], references: [id])
+  endorsement_endorsement_policyIdTopolicy      endorsement? @relation("endorsement_policyIdTopolicy")
+  risk                                          risk[]
+}
+
+model policy_back_up {
+  branch           String
+  client           String
+  clientCode       String
+  currency         String
+  dateOfIssue      DateTime
+  endDate          DateTime
+  endorsementId    String?      @unique
+  expiryDate       DateTime
+  id               String       @default(dbgenerated()) @id
+  insuranceCompany String
+  nameOfInsured    String
+  netPremium       Int
+  paymentPlan      String
+  policyNumber     String
+  preparedBy       String
+  product          String
+  productType      String
+  quarter          String
+  receiptStatus    String
+  startDate        DateTime
+  status           String
+  timeOfIssue      DateTime
+  town             String
+  underwritingYear DateTime
+  user             String
+  endorsement      endorsement? @relation(fields: [endorsementId], references: [id])
+  risk             risk[]
+}
+
+model product {
+  classId                   String?
+  id                        String         @default(dbgenerated()) @id
+  productClaimNumberPrefix  String
+  productCode               Int
+  productDescription        String
+  productName               String
+  productPolicyNumberPrefix String
+  product_class             product_class? @relation(fields: [classId], references: [id])
+}
+
+model product_class {
+  classClaimNumberPrefix  String
+  classCode               Int
+  classDescription        String
+  className               String
+  classPolicyNumberPrefix String
+  id                      String    @default(dbgenerated()) @id
+  product                 product[]
+}
+
+model risk {
+  basicPremium      Int
+  chassisNumber     String
+  color             String
+  discountRate      Int
+  discountSubTotal  Int
+  engineNumber      String
+  estimatedValue    Int
+  id                String          @default(dbgenerated()) @id
+  insuranceType     String
+  loadingTotal      Int
+  netPremium        Int
+  policyBackUpId    String?
+  policyId          String?
+  premiumLevy       Int
+  premiumRate       Int
+  productType       String
+  regNumber         String
+  riskEndDate       DateTime
+  riskStartDate     DateTime
+  sumInsured        Int
+  vehicleMake       String
+  vehicleModel      String
+  yearOfManufacture DateTime
+  policy_back_up    policy_back_up? @relation(fields: [policyBackUpId], references: [id])
+  policy            policy?         @relation(fields: [policyId], references: [id])
+  discount          discount[]
+  load              load[]
+}
+
+model sales_representative_entity {
+  accountName       String
+  accountNumber     Int
+  accountType       String
+  bank              String
+  branch            String
+  contactAddess     String
+  contactEmail      String
+  contactFirstName  String
+  contactLastName   String
+  contactMiddleName String
+  contactPhone      String
+  dateCreated       DateTime
+  id                String   @default(dbgenerated()) @id
+  intermediaryId    String
+  intermediaryType  String
+}
+
+model users_entity {
+  branch      String
+  department  String
+  email       String
+  firstName   String
+  id          String @default(dbgenerated()) @id
+  jobTitle    String
+  password    String
+  phoneNumber String
+  role        String
+  surname     String
+}
+
+enum ClientType {
+  Corporate
+  Individual
+}
+
+enum Gender {
+  Female
+  Male
+}
+
+enum IdType {
+  License
+  NRC
+  Passport
+}
+
+enum InsuranceType {
+  Comprehensive
+  ThirdParty
+}
+
+enum IntermediaryType {
+  Agent
+  Broker
+  SalesRep
+}
+
+enum ProductType {
+  Bus_Taxi @map("Bus/Taxi")
+  Commercial
+  Private
+}
