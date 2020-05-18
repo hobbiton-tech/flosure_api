@@ -8,7 +8,7 @@ import { ProductController } from './controllers/product/product.controller';
 import { CoverTypeController } from './controllers/cover-type/cover-type.controller';
 import { PerilController } from './controllers/peril/peril.controller';
 import { TypeOrmModule } from '@nestjs/typeorm';
-import { Class } from './entities/class.entity';
+import { ProductClass } from './entities/class.entity';
 import { Product } from './entities/product.entity';
 import { ProductRepository } from './repositories/product.repository';
 import { ClassRepository } from './repositories/class.repository';
@@ -21,7 +21,7 @@ import { CommissionSetup } from './entities/commission-setup.entity';
 @Module({
   imports: [
     TypeOrmModule.forFeature([
-      Class,
+      ProductClass,
       Product,
       CommissionSetup,
       ProductRepository,

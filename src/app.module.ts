@@ -3,7 +3,7 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { SetupsModule } from './setups/setups.module';
-import { Class } from 'src/setups/entities/class.entity';
+import { ProductClass } from 'src/setups/entities/class.entity';
 import { Product } from 'src/setups/entities/product.entity';
 import { CommissionSetup } from './setups/entities/commission-setup.entity';
 import { EndorsementsModule } from './endorsements/endorsements.module';
@@ -36,7 +36,7 @@ import { ReceiptsModule } from './receipts/receipts.module';
       username: 'postgres',
       password: 'joshua1234',
       database: 'postgres',
-      entities: [Class, Product, CommissionSetup],
+      entities: [ProductClass, Product, CommissionSetup],
       synchronize: true,
       autoLoadEntities: true,
       logging: true,
