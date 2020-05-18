@@ -9,7 +9,7 @@ export class BrokerEntity extends IntermediariesEntity {
   @Column()
   tPinNumber: string;
 
-  @Column()
+  @Column({ nullable: true })
   registrationNumber: string;
 
   @Column()

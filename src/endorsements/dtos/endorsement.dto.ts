@@ -18,7 +18,7 @@ export class EndorsementDto {
   readonly dateUpdated: Date;
 
   @ApiProperty()
-  readonly sate: EndorsementStatus;
+  readonly status: EndorsementStatus;
 
   @ApiProperty()
   effectDate: Date;

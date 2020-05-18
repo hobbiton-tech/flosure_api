@@ -50,7 +50,7 @@ export class QuotationDto {
   readonly status: QuoteStatus;
 
   @ApiProperty()
-  readonly basicPremiumSubTotal: number;
+  readonly basicPremiumSubTotal: string;
 
   @ApiProperty()
   readonly receiptStatus: ReceiptStatus;

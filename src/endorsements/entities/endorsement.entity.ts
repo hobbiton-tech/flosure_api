@@ -5,6 +5,7 @@ import {
   OneToMany,
   OneToOne,
   JoinColumn,
+  ManyToOne,
 } from 'typeorm';
 import { type } from 'os';
 import { Policy } from '../../policies/entities/policy.entity';
@@ -32,8 +33,10 @@ export class Endorsement {
   @Column()
   effectDate: Date;
 
-  @OneToOne(type => Policy)
-  @JoinColumn()
+  @ManyToOne(
+    type => Policy,
+    x => x.endorsements,
+  )
   policy: Policy;
 }
 

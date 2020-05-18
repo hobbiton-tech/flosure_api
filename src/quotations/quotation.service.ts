@@ -10,7 +10,10 @@ import { QuotationsModule } from 'src/quotations/quotations.module';
 
 @Injectable()
 export class QuotationService {
-  constructor(private readonly quotationRepository: QuotationRepository) {}
+  constructor(
+    @InjectRepository(Quotation)
+    private readonly quotationRepository: QuotationRepository,
+  ) {}
 
   findAll = async () => {
     return this.quotationRepository.find({
@@ -19,6 +22,7 @@ export class QuotationService {
   };
 
   createQuotation = async (quotationDto: QuotationDto) => {
+    console.log(quotationDto);
     const quotation = new Quotation();
     const risks = new Array<Risk>();
     const loads = new Array<Load>();

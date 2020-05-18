@@ -10,7 +10,7 @@ export class RiskDto {
   readonly riskEndDate: Date;
 
   @ApiProperty()
-  readonly riskQuarter: Date;
+  readonly riskQuarter: string;
 
   @ApiProperty()
   readonly regNumber: string;
@@ -34,7 +34,7 @@ export class RiskDto {
   color: string;
 
   @ApiProperty()
-  estimatedValue: number;
+  estimatedValue: string;
 
   @ApiProperty()
   productType: ProductType;
@@ -43,29 +43,29 @@ export class RiskDto {
   insuranceType: InsuranceType;
 
   @ApiProperty()
-  sumInsured: number;
+  sumInsured: string;
 
   @ApiProperty()
-  premiumRate: number;
+  premiumRate: string;
 
   @ApiProperty()
-  basicPremium: number;
+  basicPremium: string;
 
   @ApiProperty()
-  loadingTotal: number;
+  loadingTotal: string;
 
   @ApiProperty()
-  discountTotal: number;
+  discountTotal: string;
 
   @ApiProperty()
-  discountSubTotal: number;
+  discountSubTotal: string;
 
   @ApiProperty()
-  discountRate: number;
+  discountRate: string;
 
   @ApiProperty()
-  premiumLevy: number;
+  premiumLevy: string;
 
   @ApiProperty()
-  netPremium: number;
+  netPremium: string;
 }

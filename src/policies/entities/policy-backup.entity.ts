@@ -73,8 +73,8 @@ export class PolicyBackUp {
   @Column()
   productType: ProductType;
 
-  @Column()
-  netPremium: number;
+  @Column({ type: 'real' })
+  netPremium: string;
 
   @Column()
   underwritingYear: Date;
@@ -84,6 +84,9 @@ export class PolicyBackUp {
 
   @Column()
   paymentPlan: PaymentPlan;
+
+  @Column({ type: 'real' })
+  sumInsured: string;
 
   @OneToMany(
     type => Risk,

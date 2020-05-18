@@ -27,19 +27,19 @@ export class Quotation {
   @Column()
   dateCreated: Date;
 
-  @Column()
+  @Column({ nullable: true })
   clientCode: string;
 
-  @Column()
+  @Column({ nullable: true })
   messageCode: string;
 
-  @Column()
+  @Column({ nullable: true })
   coverCode: string;
 
   @Column()
   underwritingYear: Date;
 
-  @Column()
+  @Column({ nullable: true })
   branch: string;
 
   @Column()
@@ -54,8 +54,8 @@ export class Quotation {
   @Column()
   status: QuoteStatus;
 
-  @Column()
-  basicPremiumSubTotal: number;
+  @Column({ nullable: true })
+  basicPremiumSubTotal: string;
 
   @Column()
   receiptStatus: ReceiptStatus;
@@ -71,7 +71,7 @@ export class Quotation {
 
   @OneToMany(
     type => Risk,
-    risk => risk.policy,
+    risk => risk.quotation,
     { cascade: true },
   )
   risks: Risk[];

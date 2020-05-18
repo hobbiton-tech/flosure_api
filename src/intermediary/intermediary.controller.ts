@@ -89,7 +89,7 @@ export class IntermediaryController {
     );
   }
 
-  @Put('sales-representativ/:id')
+  @Put('sales-representative/:id')
   async updateSalesRepresentative(
     @Param('id') id: string,
     @Body() salesRepresentativeDto: SalesRepresentativesDto,

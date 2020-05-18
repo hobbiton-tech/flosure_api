@@ -21,7 +21,7 @@ export abstract class IntermediariesEntity {
   contactPhone: string;
 
   @Column()
-  contactAddess: string;
+  contactAddress: string;
 
   @Column()
   accountName: string;

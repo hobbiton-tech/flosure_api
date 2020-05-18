@@ -40,6 +40,9 @@ export class PolicyDto {
   readonly currency: string;
 
   @ApiProperty()
+  readonly sumInsured: string;
+
+  @ApiProperty()
   readonly preparedBy: string;
 
   @ApiProperty()
@@ -67,7 +70,7 @@ export class PolicyDto {
   readonly productType: ProductType;
 
   @ApiProperty()
-  readonly netPremium: number;
+  readonly netPremium: string;
 
   @ApiProperty()
   readonly underwritingYear: Date;
@@ -80,6 +83,4 @@ export class PolicyDto {
 
   @ApiProperty()
   risks: Risk[];
-
-  // Should be an array, right?
 }

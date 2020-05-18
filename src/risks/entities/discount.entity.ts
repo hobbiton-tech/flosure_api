@@ -15,8 +15,8 @@ export class Discount {
   @Column()
   discountType: DiscountType;
 
-  @Column()
-  amount: number;
+  @Column({ type: 'real' })
+  amount: string;
 
   @ManyToOne(
     type => Risk,

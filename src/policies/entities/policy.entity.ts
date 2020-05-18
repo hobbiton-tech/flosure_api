@@ -19,7 +19,7 @@ export class Policy {
   @Column()
   policyNumber: string;
 
-  @Column()
+  @Column({ nullable: true })
   product: string;
 
   @Column()
@@ -31,28 +31,31 @@ export class Policy {
   @Column()
   client: string;
 
-  @Column()
+  @Column({ nullable: true })
   clientCode: string;
 
   @Column()
   nameOfInsured: string;
 
-  @Column()
+  @Column({ type: 'real' })
+  sumInsured: string;
+
+  @Column({ nullable: true })
   branch: string;
 
-  @Column()
+  @Column({ nullable: true })
   insuranceCompany: string;
 
   @Column()
   currency: string;
 
-  @Column()
+  @Column({ nullable: true })
   preparedBy: string;
 
   @Column()
   status: PolicyStatus;
 
-  @Column()
+  @Column({ nullable: true })
   timeOfIssue: Date;
 
   @Column()
@@ -67,14 +70,14 @@ export class Policy {
   @Column()
   user: string;
 
-  @Column()
+  @Column({ nullable: true })
   town: string;
 
-  @Column()
+  @Column({ nullable: true })
   productType: ProductType;
 
   @Column()
-  netPremium: number;
+  netPremium: string;
 
   @Column()
   underwritingYear: Date;
@@ -92,16 +95,12 @@ export class Policy {
   )
   risks: Risk[];
 
-  @OneToOne(
+  @OneToMany(
     type => Endorsement,
     endorsement => endorsement.policy,
+    { nullable: true },
   )
-  @JoinColumn()
-  endorsement: Endorsement;
-
-  // This is starting to feel wrong :)
-  // Let me think
-  // alright
+  endorsements: Endorsement[];
 }
 
 export type PolicyStatus = 'Lapsed' | 'Active' | 'Cancelled' | 'Expired';

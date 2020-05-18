@@ -2,11 +2,10 @@ export class SalesRepresentativesDto {
   id: string;
   intermediaryId: string;
   contactFirstName: string;
-  contactMiddleName: string;
   contactLastName: string;
   contactEmail: string;
   contactPhone: string;
-  contactAddess: string;
+  contactAddress: string;
   accountName: string;
   accountNumber: number;
   accountType: string;

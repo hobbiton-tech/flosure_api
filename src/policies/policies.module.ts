@@ -9,6 +9,7 @@ import {
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { RiskRepository } from 'src/risks/repositories/risk.repository';
 import { PolicyController } from './policy.controller';
+import { Endorsement } from 'src/endorsements/entities/endorsement.entity';
 
 @Module({
   imports: [
@@ -18,6 +19,7 @@ import { PolicyController } from './policy.controller';
       PolicyRepository,
       PolicyBackUpRepository,
       RiskRepository,
+      Endorsement,
     ]),
   ],
   providers: [PolicyService],

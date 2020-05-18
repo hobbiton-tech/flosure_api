@@ -21,9 +21,12 @@ export class EndorsementController {
     return this.endorsementService.findAll();
   }
 
-  @Post()
-  createEndorsement(@Body() endorsementDto: EndorsementDto) {
-    return this.endorsementService.createEndorsement(endorsementDto);
+  @Post(':id')
+  createEndorsement(
+    @Param('id') id: string,
+    @Body() endorsementDto: EndorsementDto,
+  ) {
+    return this.endorsementService.createEndorsement(id, endorsementDto);
   }
 
   @Get(':id')

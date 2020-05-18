@@ -15,8 +15,8 @@ export class Load {
   @Column()
   loadType: LoadType;
 
-  @Column()
-  amount: number;
+  @Column({ type: 'real' })
+  amount: string;
 
   @ManyToOne(
     type => Risk,

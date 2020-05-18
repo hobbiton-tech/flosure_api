@@ -9,6 +9,7 @@ import { Policy } from '../../policies/entities/policy.entity';
 import { Load } from '../entities/load.entity';
 import { Discount } from '../entities/discount.entity';
 import { PolicyBackUp } from 'src/policies/entities/policy-backup.entity';
+import { Quotation } from 'src/quotations/entities/quotation.entity';
 
 @Entity()
 export class Risk {
@@ -22,7 +23,7 @@ export class Risk {
   riskEndDate: Date;
 
   @Column()
-  riskQuarter: Date;
+  riskQuarter: string;
 
   @Column()
   regNumber: string;
@@ -33,10 +34,10 @@ export class Risk {
   @Column()
   vehicleModel: string;
 
-  @Column()
+  @Column({ nullable: true })
   yearOfManufacture: Date;
 
-  @Column()
+  @Column({ nullable: true })
   engineNumber: string;
 
   @Column()
@@ -45,8 +46,8 @@ export class Risk {
   @Column()
   color: string;
 
-  @Column()
-  estimatedValue: number;
+  @Column({ nullable: true, type: 'real' })
+  estimatedValue: string;
 
   @Column()
   productType: ProductType;
@@ -54,38 +55,44 @@ export class Risk {
   @Column()
   insuranceType: InsuranceType;
 
-  @Column()
-  sumInsured: number;
+  @Column({ nullable: true, type: 'real' })
+  sumInsured: string;
 
-  @Column()
-  premiumRate: number;
+  @Column({ nullable: true, type: 'real' })
+  premiumRate: string;
 
-  @Column()
-  basicPremium: number;
+  @Column({ type: 'real' })
+  basicPremium: string;
 
-  @Column()
-  loadingTotal: number;
+  @Column({ type: 'real' })
+  loadingTotal: string;
 
-  // @Column()
-  // discountTotal: number;
+  @Column({ type: 'real' })
+  discountTotal: string;
 
-  @Column()
-  discountSubTotal: number;
+  @Column({ nullable: true, type: 'real' })
+  discountSubTotal: string;
 
-  @Column()
-  discountRate: number;
+  @Column({ nullable: true, type: 'real' })
+  discountRate: string;
 
-  @Column()
-  premiumLevy: number;
+  @Column({ type: 'real' })
+  premiumLevy: string;
 
-  @Column()
-  netPremium: number;
+  @Column({ type: 'real' })
+  netPremium: string;
 
   @ManyToOne(
     type => Policy,
     x => x.risks,
   )
   policy: Policy;
+
+  @ManyToOne(
+    type => Quotation,
+    x => x.risks,
+  )
+  quotation: Quotation;
 
   @ManyToOne(
     type => PolicyBackUp,

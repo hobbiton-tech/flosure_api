@@ -29,11 +29,11 @@ export class PolicyService {
 
   createPolicy = async (policyDto: PolicyDto) => {
     const policy = new Policy();
-    // const risk = new Risk();
     const risks = new Array<Risk>();
     const loads = new Array<Load>();
     const discounts = new Array<Discount>();
 
+    policy.sumInsured = policyDto.sumInsured;
     policy.branch = policyDto.branch;
     policy.client = policyDto.client;
     policy.clientCode = policyDto.clientCode;
@@ -71,7 +71,7 @@ export class PolicyService {
     }
 
     policy.risks = risks;
-
+    console.log(policy);
     await this.policyRepository.save(policy);
   };
 
@@ -89,6 +89,7 @@ export class PolicyService {
     const discounts = new Array<Discount>();
 
     policy.branch = policyDto.branch;
+    policy.sumInsured = policyDto.sumInsured;
     policy.client = policyDto.client;
     policy.clientCode = policyDto.clientCode;
     policy.currency = policyDto.currency;
@@ -128,7 +129,7 @@ export class PolicyService {
     //..
 
     policy.risks = risks;
-
+    console.log(policy);
     return this.policyRepository.save({ ...policy, id: id });
   };
 
@@ -156,6 +157,7 @@ export class PolicyService {
     policy.insuranceCompany = policyDto.insuranceCompany;
     policy.nameOfInsured = policyDto.nameOfInsured;
     policy.netPremium = policyDto.netPremium;
+    policy.sumInsured = policyDto.sumInsured;
     policy.paymentPlan = policyDto.paymentPlan;
     policy.policyNumber = policyDto.policyNumber;
     policy.preparedBy = policyDto.preparedBy;
@@ -205,6 +207,7 @@ export class PolicyService {
     policy.currency = policyDto.currency;
     policy.dateOfIssue = policyDto.dateOfIssue;
     policy.endDate = policyDto.endDate;
+    policy.sumInsured = policyDto.sumInsured;
     policy.expiryDate = policyDto.expiryDate;
     policy.insuranceCompany = policyDto.insuranceCompany;
     policy.nameOfInsured = policyDto.nameOfInsured;
