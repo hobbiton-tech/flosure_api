@@ -30,7 +30,7 @@ import { PaymentsModule } from './payments/payments.module';
       autoLoadEntities: true,
       logging: true,
 
-      //// type: 'postgres',
+      // type: 'postgres',
       // host: 'localhost',
       // port: 5432,
       // username: 'postgres',
