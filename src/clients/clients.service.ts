@@ -6,10 +6,7 @@ import { IndividualClientEntity } from './entities/individual-clients.entity';
 import { IndividualClientEntityRepository } from './repositories/individual-client.repository';
 import { CorporateClientsDto } from './dtos/corporate-client.dto';
 import { IndividualClientsDto } from './dtos/individual-client.dto';
-
-import { PrismaClient, Client } from '@prisma/client'
 import { ClientsDto } from './dtos/clients.dto';
-
 
 /**
  * This is section is for corporate clients.
@@ -17,9 +14,6 @@ import { ClientsDto } from './dtos/clients.dto';
 
 @Injectable()
 export class ClientService {
-
-  primsa  = new PrismaClient();
-
   constructor(
     @InjectRepository(CorporateClientEntity)
     private readonly corporateClientsRepository: CorporateClientEntityRepository,
@@ -35,7 +29,7 @@ export class ClientService {
   //       clientType: dto.clientType,
   //       CompanyDetail: {
   //         create: {
-            
+
   //         }
   //       }
   //     }
