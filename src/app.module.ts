@@ -39,7 +39,7 @@ import { PaymentsModule } from './payments/payments.module';
       // entities: [ProductClass, Product, CommissionSetup],
       // synchronize: true,
       // autoLoadEntities: true,
-      // logging: true,
+      /// logging: true,
     }),
     SetupsModule,
     EndorsementsModule,
