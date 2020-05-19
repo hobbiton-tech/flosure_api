@@ -26,19 +26,19 @@ export abstract class ClientEntity {
   @Column()
   status: ClientStatus;
 
-  @Column()
+  @Column({ nullable: true })
   accountName: string;
 
-  @Column()
+  @Column({ nullable: true })
   accountNumber: number;
 
-  @Column()
+  @Column({ nullable: true })
   bank: string;
 
-  @Column()
+  @Column({ nullable: true })
   branch: string;
 
-  @Column()
+  @Column({ nullable: true })
   accountType: string;
 }
 
