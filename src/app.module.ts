@@ -13,7 +13,7 @@ import { ClientsModule } from './clients/clients.module';
 import { IntermediaryModule } from './intermediary/intermediary.module';
 import { UsersModule } from './users/users.module';
 import { QuotationsModule } from './quotations/quotations.module';
-import { ReceiptsModule } from './receipts/receipts.module';
+import { PaymentsModule } from './payments/payments.module';
 
 @Module({
   imports: [
@@ -49,7 +49,8 @@ import { ReceiptsModule } from './receipts/receipts.module';
     UsersModule,
     IntermediaryModule,
     QuotationsModule,
-    ReceiptsModule,
+
+    PaymentsModule,
   ],
   controllers: [AppController],
   providers: [AppService],

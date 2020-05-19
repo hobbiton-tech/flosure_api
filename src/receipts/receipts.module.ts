@@ -1,9 +1,13 @@
 import { Module } from '@nestjs/common';
-import { ReceiptController } from './controllers/receipt/receipt.controller';
-import { ReceiptService } from './services/receipt/receipt.service';
+import { ReceiptController } from './receipt.controller';
+import { ReceiptService } from './receipt.service';
+import { TypeOrmModule } from '@nestjs/typeorm';
+import { ReceiptEntity } from './entities/receipt.entity';
+import { ReceipEntityRepository } from './repositories/receipt.repository';
 
 @Module({
+  imports: [TypeOrmModule.forFeature([ReceiptEntity, ReceipEntityRepository])],
   controllers: [ReceiptController],
-  providers: [ReceiptService]
+  providers: [ReceiptService],
 })
 export class ReceiptsModule {}
