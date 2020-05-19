@@ -14,10 +14,10 @@ export abstract class ClientEntity {
   @Column()
   address: string;
 
-  @Column()
+  @Column({ nullable: true })
   dateCreated: Date;
 
-  @Column()
+  @Column({ nullable: true })
   dateUpdated: Date;
 
   @Column()

@@ -30,7 +30,7 @@ export class IndividualClientEntity extends ClientEntity {
   @Column()
   idNumber: string;
 
-  @Column()
+  @Column({ nullable: true })
   dateOfBirth: Date;
 
   @Column()
