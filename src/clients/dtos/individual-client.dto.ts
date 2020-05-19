@@ -1,7 +1,8 @@
 import { ApiProperty } from '@nestjs/swagger';
 
 export class IndividualClientsDto {
-  id: string;
+  @ApiProperty()
+  readonly id: string;
 
   @ApiProperty()
   email?: string;

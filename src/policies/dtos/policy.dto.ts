@@ -10,6 +10,9 @@ import { RiskDto } from 'src/risks/dtos/risk.dto';
 
 export class PolicyDto {
   @ApiProperty()
+  readonly id: string;
+
+  @ApiProperty()
   readonly policyNumber: string;
 
   @ApiProperty()
