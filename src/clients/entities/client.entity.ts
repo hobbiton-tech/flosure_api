@@ -9,6 +9,9 @@ export abstract class ClientEntity {
   phone: string;
 
   @Column()
+  email: string;
+
+  @Column()
   clientID: string;
 
   @Column()
