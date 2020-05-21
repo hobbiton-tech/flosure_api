@@ -7,7 +7,7 @@ export class SalesRepresentativesDto {
   contactPhone: string;
   contactAddress: string;
   accountName: string;
-  accountNumber: number;
+  accountNumber: string;
   accountType: string;
   bank: string;
   branch: string;

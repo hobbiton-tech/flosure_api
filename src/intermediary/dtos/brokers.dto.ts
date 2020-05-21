@@ -44,7 +44,7 @@ export class BrokersDto {
   accountName: string;
 
   @ApiProperty()
-  accountNumber: number;
+  accountNumber: string;
 
   @ApiProperty()
   accountType: string;

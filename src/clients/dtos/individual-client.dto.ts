@@ -32,7 +32,7 @@ export class IndividualClientsDto {
   accountName: string;
 
   @ApiProperty()
-  accountNumber: number;
+  accountNumber: string;
 
   @ApiProperty()
   bank: string;

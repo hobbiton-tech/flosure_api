@@ -26,7 +26,7 @@ export abstract class IntermediariesEntity {
   accountName: string;
 
   @Column()
-  accountNumber: number;
+  accountNumber: string;
 
   @Column()
   accountType: string;

@@ -19,5 +19,5 @@ export class CorporateClientEntity extends ClientEntity {
   companyName: string;
 
   @Column()
-  taxPin: number;
+  taxPin: string;
 }

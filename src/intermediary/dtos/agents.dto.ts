@@ -43,7 +43,7 @@ export class AgentsDto {
   accountName: string;
 
   @ApiProperty()
-  accountNumber: number;
+  accountNumber: string;
 
   @ApiProperty()
   accountType: string;

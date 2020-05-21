@@ -29,7 +29,7 @@ export class CorporateClientsDto {
   accountName: string;
 
   @ApiProperty()
-  accountNumber: number;
+  accountNumber: string;
 
   @ApiProperty()
   bank: string;
@@ -59,7 +59,7 @@ export class CorporateClientsDto {
   companyName: string;
 
   @ApiProperty()
-  taxPin: number;
+  taxPin: string;
 }
 
 export type ClientType = 'Individual' | 'Corporate';

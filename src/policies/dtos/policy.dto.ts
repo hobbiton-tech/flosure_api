@@ -4,6 +4,7 @@ import {
   ProductType,
   ReceiptStatus,
   PaymentPlan,
+  SourceOfBusinessType,
 } from '../entities/policy.entity';
 import { Risk } from 'src/risks/entities/risk.entity';
 import { RiskDto } from 'src/risks/dtos/risk.dto';
@@ -83,6 +84,12 @@ export class PolicyDto {
 
   @ApiProperty()
   paymentPlan: PaymentPlan;
+
+  @ApiProperty()
+  readonly sourceOfBusiness: SourceOfBusinessType;
+
+  @ApiProperty()
+  readonly intermediaryName: string;
 
   @ApiProperty()
   risks: Risk[];

@@ -57,6 +57,8 @@ export class PolicyService {
     policy.town = policyDto.town;
     policy.underwritingYear = policyDto.underwritingYear;
     policy.user = policyDto.user;
+    policy.sourceOfBusiness = policyDto.sourceOfBusiness;
+    policy.intermediaryName = policyDto.intermediaryName;
 
     for (let risk of policyDto.risks) {
       for (let load of risk.loads) {
@@ -110,6 +112,8 @@ export class PolicyService {
     policy.status = policyDto.status;
     policy.timeOfIssue = policyDto.timeOfIssue;
     policy.town = policyDto.town;
+    policy.sourceOfBusiness = policyDto.sourceOfBusiness;
+    policy.intermediaryName = policyDto.intermediaryName;
     policy.underwritingYear = policyDto.underwritingYear;
     policy.user = policyDto.user;
 

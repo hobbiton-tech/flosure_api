@@ -88,6 +88,12 @@ export class Policy {
   @Column()
   paymentPlan: PaymentPlan;
 
+  @Column()
+  sourceOfBusiness: SourceOfBusinessType;
+
+  @Column()
+  intermediaryName: string;
+
   @OneToMany(
     type => Risk,
     risk => risk.policy,
@@ -107,3 +113,8 @@ export type PolicyStatus = 'Lapsed' | 'Active' | 'Cancelled' | 'Expired';
 export type ProductType = 'Private' | 'Commercial' | 'Bus/Taxi';
 export type ReceiptStatus = 'Unreceipted' | 'Receipted';
 export type PaymentPlan = 'Created' | 'NotCreated';
+export type SourceOfBusinessType =
+  | 'Direct'
+  | 'Broker'
+  | 'Agent'
+  | 'Sales Representative';

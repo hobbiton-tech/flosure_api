@@ -9,7 +9,7 @@ export /*abstract*/ class ClientsDto {
   clientType: ClientType;
   status: ClientStatus;
   accountName: string;
-  accountNumber: number;
+  accountNumber: string;
   bank: string;
   branch: string;
   accountType: string; // account Details: Account Details; // quotes: Quote[]; Il claims: Claim[];
@@ -33,7 +33,7 @@ export /*abstract*/ class ClientsDto {
   contactLastName: string;
   contactEmail: string;
   companyName: string;
-  taxPin: number;
+  taxPin: string;
 }
 
 export type ClientType = 'Individual' | 'Corporate';

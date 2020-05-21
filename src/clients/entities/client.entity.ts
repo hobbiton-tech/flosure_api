@@ -33,7 +33,7 @@ export abstract class ClientEntity {
   accountName: string;
 
   @Column({ nullable: true })
-  accountNumber: number;
+  accountNumber: string;
 
   @Column({ nullable: true })
   bank: string;
