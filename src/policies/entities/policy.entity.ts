@@ -10,6 +10,9 @@ import {
 import { Endorsement } from '../../endorsements/entities/endorsement.entity';
 import { type } from 'os';
 import { Risk } from '../../risks/entities/risk.entity';
+import { DebitNote } from 'src/documents/entities/debit-note.entity';
+import { CreditNote } from 'src/documents/entities/credit-note.entity';
+import { CoverNote } from 'src/documents/entities/cover-note.entity';
 
 @Entity()
 export class Policy {
@@ -79,7 +82,7 @@ export class Policy {
   @Column()
   netPremium: string;
 
-  @Column()
+  @Column({ nullable: true })
   underwritingYear: Date;
 
   @Column()
@@ -107,6 +110,27 @@ export class Policy {
     { nullable: true },
   )
   endorsements: Endorsement[];
+
+  @OneToMany(
+    type => DebitNote,
+    debitNote => debitNote.policy,
+    { nullable: true },
+  )
+  debitNotes: DebitNote[];
+
+  @OneToMany(
+    type => CreditNote,
+    creditNote => creditNote.policy,
+    { nullable: true },
+  )
+  creditNotes: CreditNote[];
+
+  @OneToMany(
+    type => CoverNote,
+    coverNote => coverNote.policy,
+    { nullable: true },
+  )
+  coverNotes: CoverNote[];
 }
 
 export type PolicyStatus = 'Lapsed' | 'Active' | 'Cancelled' | 'Expired';

@@ -74,7 +74,7 @@ export class PolicyService {
 
     policy.risks = risks;
     console.log(policy);
-    await this.policyRepository.save(policy);
+     return this.policyRepository.save(policy);
   };
 
   findOnePolicy = async (id: string) => {

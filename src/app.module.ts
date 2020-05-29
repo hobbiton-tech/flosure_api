@@ -14,6 +14,10 @@ import { IntermediaryModule } from './intermediary/intermediary.module';
 import { UsersModule } from './users/users.module';
 import { QuotationsModule } from './quotations/quotations.module';
 import { PaymentsModule } from './payments/payments.module';
+import { DocumentsModule } from './documents/documents.module';
+import { DebitNote } from './documents/entities/debit-note.entity';
+import { CreditNote } from './documents/entities/credit-note.entity';
+import { CoverNote } from './documents/entities/cover-note.entity';
 
 @Module({
   imports: [
@@ -25,7 +29,14 @@ import { PaymentsModule } from './payments/payments.module';
       password:
         '831626c55d6f55a3d431280f046d0685000a844f54d24276647614dc999be92d',
       database: 'depqp2jclcrgp3',
-      entities: [ProductClass, Product, CommissionSetup],
+      entities: [
+        ProductClass,
+        Product,
+        CommissionSetup,
+        DebitNote,
+        CreditNote,
+        CoverNote,
+      ],
       synchronize: true,
       autoLoadEntities: true,
       logging: true,
@@ -36,7 +47,14 @@ import { PaymentsModule } from './payments/payments.module';
       // username: 'postgres',
       // password: 'joshua1234',
       // database: 'postgres',
-      // entities: [ProductClass, Product, CommissionSetup],
+      // entities: [
+      //   ProductClass,
+      //   Product,
+      //   CommissionSetup,
+      //   DebitNote,
+      //   CreditNote,
+      //   CoverNote,
+      // ],
       // synchronize: true,
       // autoLoadEntities: true,
       // logging: true,
@@ -51,6 +69,8 @@ import { PaymentsModule } from './payments/payments.module';
     QuotationsModule,
 
     PaymentsModule,
+
+    DocumentsModule,
   ],
   controllers: [AppController],
   providers: [AppService],
