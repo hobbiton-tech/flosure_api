@@ -47,12 +47,12 @@ export class QuotationService {
     quotation.underwritingYear = quotationDto.underwritingYear;
     quotation.user = quotationDto.user;
 
-    for (let risk of quotationDto.risks) {
-      for (let load of risk.loads) {
+    for (const risk of quotationDto.risks) {
+      for (const load of risk.loads) {
         loads.push(load);
       }
 
-      for (let discount of risk.discounts) {
+      for (const discount of risk.discounts) {
         discounts.push(discount);
       }
 
@@ -95,12 +95,12 @@ export class QuotationService {
     quotation.underwritingYear = quotationDto.underwritingYear;
     quotation.user = quotationDto.user;
 
-    for (let risk of quotationDto.risks) {
-      for (let load of risk.loads) {
+    for (const risk of quotationDto.risks) {
+      for (const load of risk.loads) {
         loads.push(load);
       }
 
-      for (let discount of risk.discounts) {
+      for (const discount of risk.discounts) {
         discounts.push(discount);
       }
 

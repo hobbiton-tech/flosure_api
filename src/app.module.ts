@@ -22,13 +22,31 @@ import { CoverNote } from './documents/entities/cover-note.entity';
 @Module({
   imports: [
     TypeOrmModule.forRoot({
+      // type: 'postgres',
+      // host: 'ec2-52-73-247-67.compute-1.amazonaws.com',
+      // port: 5432,
+      // username: 'qppyocwdpbilrq',
+      // password:
+      //   '831626c55d6f55a3d431280f046d0685000a844f54d24276647614dc999be92d',
+      // database: 'depqp2jclcrgp3',
+      // entities: [
+      //   ProductClass,
+      //   Product,
+      //   CommissionSetup,
+      //   DebitNote,
+      //   CreditNote,
+      //   CoverNote,
+      // ],
+      // synchronize: true,
+      // autoLoadEntities: true,
+      // logging: true,
+
       type: 'postgres',
-      host: 'ec2-52-73-247-67.compute-1.amazonaws.com',
+      host: '104.248.247.78',
       port: 5432,
-      username: 'qppyocwdpbilrq',
-      password:
-        '831626c55d6f55a3d431280f046d0685000a844f54d24276647614dc999be92d',
-      database: 'depqp2jclcrgp3',
+      username: 'flosuredb',
+      password: '@1h0bb170n',
+      database: 'flosure_aplus',
       entities: [
         ProductClass,
         Product,
