@@ -15,7 +15,7 @@ export class IndividualClientEntity extends ClientEntity {
   @Column()
   lastName: string;
 
-  @Column()
+  @Column({ nullable: true })
   maritalStatus: string;
 
   @Column({ nullable: true })
